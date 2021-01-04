@@ -36,6 +36,7 @@ class SearchEngine:
             # parse the document
             parsed_document = self._parser.parse_doc(document)
             number_of_documents += 1
+            print(number_of_documents)
             # index the document data
             self._indexer.add_new_doc(parsed_document)
         print('Finished parsing and indexing.')

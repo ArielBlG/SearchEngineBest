@@ -6,6 +6,9 @@ class Indexer:
         self.inverted_idx = {}
         self.postingDict = {}
         self.config = config
+        self.tweets_dic = {}
+        self.num_of_document = 0
+        self.avg_data_size = 0
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -29,9 +32,13 @@ class Indexer:
                 self.inverted_idx[term] = self.inverted_idx.get(term, 0)
                 self.inverted_idx[term] += 1
                 doc_dict_term = document_dictionary[term]
-                self.postingDict[term].append((tweet_id, doc_dict_term / max_unique, doc_dict_term))
+                if term in self.postingDict:
+                    self.postingDict[term].append((tweet_id, doc_dict_term / max_unique, doc_dict_term))
+                else:
+                    self.postingDict[term] = [(tweet_id, doc_dict_term / max_unique, doc_dict_term)]
 
-            except:
+            except Exception as e:
+                e.with_traceback()
                 print('problem with the following key {}'.format(term[0]))
 
     # DO NOT MODIFY THIS SIGNATURE
