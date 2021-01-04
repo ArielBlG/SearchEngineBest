@@ -18,17 +18,18 @@ class Indexer:
         """
 
         document_dictionary = document.term_doc_dictionary
+        max_unique = document.max_unique
+        tweet_id = document.tweet_id
+        self.tweets_dic[tweet_id] = [0, document.rt_no_text, document.doc_length]  #
+        self.num_of_document += 1
+        self.avg_data_size += document.doc_length
         # Go over each term in the doc
         for term in document_dictionary.keys():
             try:
-                # Update inverted index and posting
-                if term not in self.inverted_idx.keys():
-                    self.inverted_idx[term] = 1
-                    self.postingDict[term] = []
-                else:
-                    self.inverted_idx[term] += 1
-
-                self.postingDict[term].append((document.tweet_id, document_dictionary[term]))
+                self.inverted_idx[term] = self.inverted_idx.get(term, 0)
+                self.inverted_idx[term] += 1
+                doc_dict_term = document_dictionary[term]
+                self.postingDict[term].append((tweet_id, doc_dict_term / max_unique, doc_dict_term))
 
             except:
                 print('problem with the following key {}'.format(term[0]))
