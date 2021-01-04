@@ -80,7 +80,9 @@ class SearchEngine:
 def main():
     search_engine = SearchEngine()
     search_engine.build_index_from_parquet('data/benchmark_data_train.snappy.parquet')
-    search_engine.search()
+    print("Enter a query")
+    query = input()
+    search_engine.search(query)
 
 
 if __name__ == '__main__':
