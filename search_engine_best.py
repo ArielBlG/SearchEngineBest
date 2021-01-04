@@ -75,3 +75,13 @@ class SearchEngine:
         """
         searcher = Searcher(self._parser, self._indexer, model=self._model)
         return searcher.search(query)
+
+
+def main():
+    search_engine = SearchEngine()
+    search_engine.build_index_from_parquet('data/benchmark_data_train.snappy.parquet')
+    search_engine.search()
+
+
+if __name__ == '__main__':
+    main()
