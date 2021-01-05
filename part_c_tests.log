@@ -1,34 +1,205 @@
-ERROR 2021-01-05 17:54:28,081: report_part_c.docx does not exist.
-INFO 2021-01-05 17:54:28,113: Successfully loaded benchmark labels data.
-INFO 2021-01-05 17:54:28,116: Successfully loaded queries data.
-ERROR 2021-01-05 17:54:28,117: search_engine_1.py does not exist.
-ERROR 2021-01-05 17:54:28,118: search_engine_2.py does not exist.
-INFO 2021-01-05 17:54:32,608: Successfully imported module search_engine_best.
-INFO 2021-01-05 17:54:32,608: loading Word2VecKeyedVectors object from word2vec.wordvectors
-DEBUG 2021-01-05 17:54:32,609: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-05 17:54:32,815: setting ignored attribute vectors_norm to None
-INFO 2021-01-05 17:54:32,815: loaded word2vec.wordvectors
-DEBUG 2021-01-05 17:54:37,894: Building the index in search_engine_best for benchmark data took 5.043402660000001 seconds.
-INFO 2021-01-05 17:54:37,895: loading Word2VecKeyedVectors object from ./model
-DEBUG 2021-01-05 17:54:37,895: {'uri': './model', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-ERROR 2021-01-05 17:54:37,895: The following error occured while testing the module search_engine_best.
-ERROR 2021-01-05 17:54:37,895: [Errno 2] No such file or directory: './model'
-Traceback (most recent call last):
-  File "/Users/ariel-pc/Documents/שנה ג/IR/Part 3/Search_Engine/test_part_c_students.py", line 107, in <module>
-    engine.load_precomputed_model(model_dir)
-  File "/Users/ariel-pc/Documents/שנה ג/IR/Part 3/Search_Engine/search_engine_best.py", line 67, in load_precomputed_model
-    return KeyedVectors.load(model_dir, mmap='r')
-  File "/Users/ariel-pc/Documents/שנה ג/IR/Part 3/Search_Engine/venv/lib/python3.7/site-packages/gensim/models/keyedvectors.py", line 1553, in load
-    model = super(WordEmbeddingsKeyedVectors, cls).load(fname_or_handle, **kwargs)
-  File "/Users/ariel-pc/Documents/שנה ג/IR/Part 3/Search_Engine/venv/lib/python3.7/site-packages/gensim/models/keyedvectors.py", line 228, in load
-    return super(BaseKeyedVectors, cls).load(fname_or_handle, **kwargs)
-  File "/Users/ariel-pc/Documents/שנה ג/IR/Part 3/Search_Engine/venv/lib/python3.7/site-packages/gensim/utils.py", line 435, in load
-    obj = unpickle(fname)
-  File "/Users/ariel-pc/Documents/שנה ג/IR/Part 3/Search_Engine/venv/lib/python3.7/site-packages/gensim/utils.py", line 1395, in unpickle
-    with open(fname, 'rb') as f:
-  File "/Users/ariel-pc/Documents/שנה ג/IR/Part 3/Search_Engine/venv/lib/python3.7/site-packages/smart_open/smart_open_lib.py", line 181, in open
-    newline=newline,
-  File "/Users/ariel-pc/Documents/שנה ג/IR/Part 3/Search_Engine/venv/lib/python3.7/site-packages/smart_open/smart_open_lib.py", line 340, in _shortcut_open
-    return _builtin_open(local_path, mode, buffering=buffering, **open_kwargs)
-FileNotFoundError: [Errno 2] No such file or directory: './model'
-DEBUG 2021-01-05 17:54:37,904: Total runtime was: 0:00:09.822977
+ERROR 2021-01-05 18:58:02,725: report_part_c.docx does not exist.
+INFO 2021-01-05 18:58:02,735: Successfully loaded benchmark labels data.
+INFO 2021-01-05 18:58:02,737: Successfully loaded queries data.
+ERROR 2021-01-05 18:58:02,737: search_engine_1.py does not exist.
+ERROR 2021-01-05 18:58:02,737: search_engine_2.py does not exist.
+INFO 2021-01-05 18:58:04,447: Successfully imported module search_engine_best.
+INFO 2021-01-05 18:58:04,447: loading Word2VecKeyedVectors object from ./model
+DEBUG 2021-01-05 18:58:04,447: {'uri': './model', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:04,609: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:04,609: loaded ./model
+DEBUG 2021-01-05 18:58:08,597: Building the index in search_engine_best for benchmark data took 3.965600635 seconds.
+INFO 2021-01-05 18:58:08,597: loading Word2VecKeyedVectors object from ./model1
+DEBUG 2021-01-05 18:58:08,597: {'uri': './model1', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:08,882: loading vectors from ./model1.vectors.npy with mmap=r
+INFO 2021-01-05 18:58:08,909: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:08,910: loaded ./model1
+INFO 2021-01-05 18:58:08,928: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:08,928: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:09,103: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:09,103: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:09,115: search_engine_best successfully returned 1 results for the query 'bioweapon'.
+INFO 2021-01-05 18:58:09,116: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:09,116: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:09,275: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:09,275: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:09,391: search_engine_best successfully returned 4 results for query number 1.
+INFO 2021-01-05 18:58:09,394: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:09,394: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:09,540: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:09,540: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:09,643: search_engine_best successfully returned 3 results for query number 2.
+INFO 2021-01-05 18:58:09,651: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:09,651: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:09,800: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:09,800: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:09,859: search_engine_best successfully returned 4 results for query number 3.
+INFO 2021-01-05 18:58:09,864: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:09,864: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:10,082: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:10,082: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:10,119: search_engine_best successfully returned 3 results for query number 4.
+INFO 2021-01-05 18:58:10,121: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:10,121: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:10,269: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:10,269: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:10,305: search_engine_best successfully returned 3 results for query number 5.
+INFO 2021-01-05 18:58:10,309: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:10,309: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:10,458: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:10,458: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:10,562: search_engine_best successfully returned 3 results for query number 6.
+INFO 2021-01-05 18:58:10,570: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:10,570: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:10,787: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:10,788: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:10,812: search_engine_best successfully returned 3 results for query number 7.
+INFO 2021-01-05 18:58:10,814: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:10,814: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:10,963: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:10,963: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:11,021: search_engine_best successfully returned 3 results for query number 8.
+INFO 2021-01-05 18:58:11,025: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:11,026: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:11,172: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:11,172: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:11,267: search_engine_best successfully returned 4 results for query number 9.
+INFO 2021-01-05 18:58:11,274: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:11,274: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:11,489: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:11,489: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:11,554: search_engine_best successfully returned 3 results for query number 10.
+INFO 2021-01-05 18:58:11,559: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:11,559: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:11,702: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:11,702: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:11,819: search_engine_best successfully returned 4 results for query number 11.
+INFO 2021-01-05 18:58:11,828: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:11,828: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:12,048: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:12,048: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:12,173: search_engine_best successfully returned 6 results for query number 12.
+INFO 2021-01-05 18:58:12,182: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:12,182: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:12,330: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:12,330: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:12,446: search_engine_best successfully returned 5 results for query number 13.
+INFO 2021-01-05 18:58:12,454: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:12,454: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:12,603: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:12,603: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:12,661: search_engine_best successfully returned 3 results for query number 14.
+INFO 2021-01-05 18:58:12,665: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:12,666: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:12,887: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:12,888: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:12,904: search_engine_best successfully returned 3 results for query number 15.
+INFO 2021-01-05 18:58:12,905: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:12,905: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:13,055: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:13,055: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:13,087: search_engine_best successfully returned 4 results for query number 16.
+INFO 2021-01-05 18:58:13,089: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:13,089: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:13,246: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:13,246: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:13,339: search_engine_best successfully returned 4 results for query number 17.
+INFO 2021-01-05 18:58:13,346: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:13,346: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:13,576: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:13,576: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:13,600: search_engine_best successfully returned 3 results for query number 18.
+INFO 2021-01-05 18:58:13,601: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:13,602: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:13,748: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:13,748: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:13,812: search_engine_best successfully returned 4 results for query number 19.
+INFO 2021-01-05 18:58:13,817: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:13,817: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:14,042: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:14,043: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:14,108: search_engine_best successfully returned 4 results for query number 20.
+INFO 2021-01-05 18:58:14,112: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:14,112: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:14,256: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:14,256: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:14,321: search_engine_best successfully returned 4 results for query number 21.
+INFO 2021-01-05 18:58:14,326: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:14,326: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:14,469: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:14,470: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:14,585: search_engine_best successfully returned 4 results for query number 22.
+INFO 2021-01-05 18:58:14,594: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:14,594: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:14,823: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:14,823: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:14,935: search_engine_best successfully returned 4 results for query number 23.
+INFO 2021-01-05 18:58:14,943: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:14,943: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:15,094: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:15,094: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:15,175: search_engine_best successfully returned 3 results for query number 24.
+INFO 2021-01-05 18:58:15,181: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:15,181: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:15,327: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:15,327: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:15,522: search_engine_best successfully returned 4 results for query number 25.
+INFO 2021-01-05 18:58:15,531: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:15,531: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:15,677: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:15,677: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:15,750: search_engine_best successfully returned 4 results for query number 26.
+INFO 2021-01-05 18:58:15,755: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:15,756: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:15,920: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:15,920: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:15,999: search_engine_best successfully returned 5 results for query number 27.
+INFO 2021-01-05 18:58:16,004: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:16,004: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:16,233: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:16,234: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:16,356: search_engine_best successfully returned 5 results for query number 28.
+INFO 2021-01-05 18:58:16,366: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:16,366: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:16,525: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:16,525: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:16,578: search_engine_best successfully returned 3 results for query number 29.
+INFO 2021-01-05 18:58:16,582: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:16,582: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:16,743: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:16,744: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:16,825: search_engine_best successfully returned 3 results for query number 30.
+INFO 2021-01-05 18:58:16,830: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:16,830: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:17,057: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:17,057: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:17,087: search_engine_best successfully returned 4 results for query number 31.
+INFO 2021-01-05 18:58:17,089: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:17,089: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:17,235: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:17,235: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:17,366: search_engine_best successfully returned 7 results for query number 32.
+INFO 2021-01-05 18:58:17,375: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:17,375: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:17,590: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:17,591: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:17,728: search_engine_best successfully returned 7 results for query number 33.
+INFO 2021-01-05 18:58:17,736: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:17,737: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:17,896: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:17,896: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:17,967: search_engine_best successfully returned 4 results for query number 34.
+INFO 2021-01-05 18:58:17,972: loading Word2VecKeyedVectors object from word2vec.wordvectors
+DEBUG 2021-01-05 18:58:17,972: {'uri': 'word2vec.wordvectors', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-05 18:58:18,138: setting ignored attribute vectors_norm to None
+INFO 2021-01-05 18:58:18,139: loaded word2vec.wordvectors
+DEBUG 2021-01-05 18:58:18,195: search_engine_best successfully returned 2 results for query number 35.
+DEBUG 2021-01-05 18:58:24,229: search_engine_best results have MAP value of 0.7370991181617969.
+DEBUG 2021-01-05 18:58:24,255: search_engine_best results produced average precision of 0.6055125047256755.
+DEBUG 2021-01-05 18:58:24,255: search_engine_best results produced average precision@5 of 0.7485714285714286.
+DEBUG 2021-01-05 18:58:24,255: search_engine_best results produced average precision@10 of 0.7457142857142858.
+DEBUG 2021-01-05 18:58:24,255: search_engine_best results produced average precision@50 of 0.7542857142857141.
+DEBUG 2021-01-05 18:58:24,255: search_engine_best results produced average recall of 0.9816636304381081.
+INFO 2021-01-05 18:58:24,255: idx_bench.pkl found!
+INFO 2021-01-05 18:58:24,422: Successfully loaded idx_bench.pkl using search_engine_best.
+DEBUG 2021-01-05 18:58:24,422: Total runtime was: 0:00:21.697231

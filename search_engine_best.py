@@ -1,3 +1,4 @@
+import os
 import time
 
 import pandas as pd
@@ -18,7 +19,7 @@ class SearchEngine:
     def __init__(self, config=None):
         self._config = config
         self._indexer = Indexer(config)
-        self._model = self.load_precomputed_model("word2vec.wordvectors")
+        self._model = self.load_precomputed_model(os.path.join('.', 'model'))
         self._parser = Parse(model=self._model)
 
     # DO NOT MODIFY THIS SIGNATURE

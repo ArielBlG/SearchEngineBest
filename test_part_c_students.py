@@ -36,7 +36,8 @@ if __name__ == '__main__':
     bench_data_path = os.path.join('data', 'benchmark_data_train.snappy.parquet')
     bench_lbls_path = os.path.join('data', 'benchmark_lbls_train.csv')
     queries_path = os.path.join('data', 'queries_train.tsv')
-    model_dir = os.path.join('.', 'model')
+    # model_dir = os.path.join('.', 'model')
+    model_dir = os.path.join('.', 'model1')
 
     start = datetime.now()
     try:
