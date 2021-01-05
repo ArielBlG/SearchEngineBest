@@ -7,6 +7,7 @@ from parser_module import Parse
 from indexer import Indexer
 from searcher import Searcher
 import utils
+from gensim.models import KeyedVectors
 
 
 # DO NOT CHANGE THE CLASS NAME
@@ -16,9 +17,9 @@ class SearchEngine:
     # You can change the internal implementation, but you must have a parser and an indexer.
     def __init__(self, config=None):
         self._config = config
-        self._parser = Parse()
         self._indexer = Indexer(config)
-        self._model = None
+        self._model = self.load_precomputed_model("word2vec.wordvectors")
+        self._parser = Parse(model=self._model)
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -63,7 +64,7 @@ class SearchEngine:
         This is where you would load models like word2vec, LSI, LDA, etc. and 
         assign to self._model, which is passed on to the searcher at query time.
         """
-        pass
+        return KeyedVectors.load(model_dir, mmap='r')
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -87,7 +88,7 @@ def main():
     search_engine = SearchEngine()
     search_engine.build_index_from_parquet('data/benchmark_data_train.snappy.parquet')
     end = time.time()
-    print(end-start)
+    print(end - start)
     print(search_engine.search("mask corona children"))
 
 

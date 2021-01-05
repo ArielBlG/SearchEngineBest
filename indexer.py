@@ -34,8 +34,7 @@ class Indexer:
         # Go over each term in the doc
         for term in document_dictionary.keys():
             try:
-                self.inverted_idx[term] = self.inverted_idx.get(term, 0)
-                self.inverted_idx[term] += 1
+                self.inverted_idx[term] = self.inverted_idx.get(term, 0) + 1
                 doc_dict_term = document_dictionary[term]
                 if term in self.postingDict:
                     self.postingDict[term].append((tweet_id, doc_dict_term / max_unique, doc_dict_term))

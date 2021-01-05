@@ -19,15 +19,15 @@ NER_pattern = r'(?<!\.\s)(?!^)\b([A-Z]\.?\w*\-?[0-9]*(?:\s+[A-Z]\w*)*)'
 nlp = spacy.load('en_core_web_sm')
 # pattern_to_delete = emoji_pattern + '|' + reserved_word_pattern + '|' + url_pattern
 pattern_to_delete = reserved_word_pattern + '|' + url_pattern
-
+punct = r"""!"#$%&'()*-+,./:;<=>?[\]^_`{|}~“”’!!…"""
 
 class Parse:
 
-    def __init__(self):
+    def __init__(self, model=None):
         self.stop_words = set(stopwords.words('english'))
         self.special_words = []
         self.lemma_dict = {}
-        self.wv = KeyedVectors.load("word2vec.wordvectors", mmap='r')
+        self.wv = model
         self.doc_vector = np.zeros(300)
         self.num_of_vectors = 0
         # self.wv =
@@ -126,26 +126,19 @@ class Parse:
         :return:
         """
         full_text = text
-        text = self.get_special_tokens(full_text)
+        text = self.get_special_tokens(text)
         # text_tokens = tknzr.tokenize(text)
-        text_tokens = re.findall(TOKENIZER_PATTERN, text)
-        new_text_tokens = [contractions_dict[word.lower()] if word.lower() in contractions_dict else word for word in
-                           text_tokens]
-        punct = string.punctuation + "“”’!!…"
-        punct.replace('@', '')
-        text_tokens_without_stopwords = [w.lower() for w in new_text_tokens if
-                                         w.lower() not in self.stop_words and w not in punct]
-        # text_tokens_without_stopwords = [w for w in new_text_tokens if w.lower() not in self.stop_words and w not in punct]
-        # text_tokens_without_stopwords = [w.lower() for w in text_tokens if w.lower() not in self.stop_words]
-        entity_list = []
+        text_tokens = re.findall(TOKENIZER_PATTERN, text)  # Extracting words
+        text_tokens = list(map(lambda word: contractions_dict[word].split(" ") if word in contractions_dict else [word],
+                               text_tokens))  # Separates contractions
+        text_tokens = [item for sublist in text_tokens for item in sublist]  # Flatting list [[q],[v]]->[q,v]
+        text_tokens = list(filter(lambda item: item.lower() not in self.stop_words, text_tokens))
         entity_list = self.find_ent(full_text)
-        new_text_tokens = [contractions_dict[word.lower()] if word.lower() in contractions_dict else word for word in
-                           entity_list]
-        entity_list = [w for w in entity_list if w.lower() not in self.stop_words]
-        new_text_tokens.clear()
-        text_tokens_without_stopwords += [word for word in entity_list if word not in text_tokens_without_stopwords]
-        text_tokens_without_stopwords += [token for token in self.special_words]
-        return text_tokens_without_stopwords
+        entity_list = list(filter(lambda item: item.lower() not in self.stop_words, entity_list))
+        text_tokens = list(map(lambda word: word.lower(), text_tokens))  # Lower all words
+        text_tokens += entity_list
+        self.special_words = []
+        return text_tokens
 
     def find_ent(self, full_text):
         lst = re.findall(NER_pattern, full_text)
@@ -210,12 +203,9 @@ class Parse:
                     self.doc_vector += vector
                 except:
                     pass
-            if term not in term_dict.keys():
-                term_dict[term] = 1
-            else:
-                term_dict[term] += 1
-                if term_dict[term] > max:
-                    max = term_dict[term]
+            term_dict[term] = term_dict.get(term, 0) + 1
+            if term_dict[term] > max:
+                max = term_dict[term]
         self.doc_vector = self.doc_vector / self.num_of_vectors
         # print(doc_length - self.num_of_vectors)
         document = Document(tweet_id=tweet_id,
