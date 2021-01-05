@@ -2,7 +2,7 @@
 class Document:
 
     def __init__(self, tweet_id, tweet_date=None, full_text=None, url=None, retweet_text=None, retweet_url=None,
-                 quote_text=None, quote_url=None, term_doc_dictionary=None, doc_length=0, max_unique = 0, rt_no_text=0):
+                 quote_text=None, quote_url=None, term_doc_dictionary=None, doc_length=0, max_unique = 0, rt_no_text=0, vector=None):
         """
         :param tweet_id: tweet id
         :param tweet_date: tweet date
@@ -27,3 +27,4 @@ class Document:
         self.doc_length = doc_length
         self.max_unique = max_unique
         self.rt_no_text = rt_no_text
+        self.doc_vector = vector

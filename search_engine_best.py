@@ -1,3 +1,5 @@
+import time
+
 import pandas as pd
 from reader import ReadFile
 from configuration import ConfigClass
@@ -36,9 +38,11 @@ class SearchEngine:
             # parse the document
             parsed_document = self._parser.parse_doc(document)
             number_of_documents += 1
-            print(number_of_documents)
+            # print(number_of_documents)
             # index the document data
             self._indexer.add_new_doc(parsed_document)
+        self._indexer.compute_weights_per_doc()
+        self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
 
     # DO NOT MODIFY THIS SIGNATURE
@@ -79,11 +83,12 @@ class SearchEngine:
 
 
 def main():
+    start = time.time()
     search_engine = SearchEngine()
     search_engine.build_index_from_parquet('data/benchmark_data_train.snappy.parquet')
-    print("Enter a query")
-    query = input()
-    search_engine.search(query)
+    end = time.time()
+    print(end-start)
+    print(search_engine.search("mask corona children"))
 
 
 if __name__ == '__main__':

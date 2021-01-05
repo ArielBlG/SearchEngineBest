@@ -1,3 +1,7 @@
+import numpy as np
+import utils
+
+
 # DO NOT MODIFY CLASS NAME
 class Indexer:
     # DO NOT MODIFY THIS SIGNATURE
@@ -23,9 +27,10 @@ class Indexer:
         document_dictionary = document.term_doc_dictionary
         max_unique = document.max_unique
         tweet_id = document.tweet_id
-        self.tweets_dic[tweet_id] = [0, document.rt_no_text, document.doc_length]  #
+        self.tweets_dic[tweet_id] = [0, document.rt_no_text, document.doc_length, document.doc_vector]  #
         self.num_of_document += 1
         self.avg_data_size += document.doc_length
+        # doc_vector = document.doc_vector
         # Go over each term in the doc
         for term in document_dictionary.keys():
             try:
@@ -49,7 +54,10 @@ class Indexer:
         Input:
             fn - file name of pickled index.
         """
-        raise NotImplementedError
+        object_to_open = utils.load_obj(fn)
+        self.inverted_idx = object_to_open[0]
+        self.postingDict = object_to_open[1]
+        self.tweets_dic = object_to_open[2]
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -59,7 +67,8 @@ class Indexer:
         Input:
               fn - file name of pickled index.
         """
-        raise NotImplementedError
+        object_to_save = (self.inverted_idx, self.postingDict, self.tweets_dic)
+        utils.save_obj(object_to_save, fn)
 
     # feel free to change the signature and/or implementation of this function 
     # or drop altogether.
@@ -76,3 +85,39 @@ class Indexer:
         Return the posting list from the index for a term.
         """
         return self.postingDict[term] if self._is_term_exist(term) else []
+
+    def get_term_from_inverted(self, term):
+        """
+        retur the value of the received term in the inverted index
+        """
+        return self.inverted_idx[term]
+
+    def get_number_of_docs(self):
+        """
+        return the number of documents in the corpus
+        """
+        return len(self.tweets_dic)
+
+    # TODO: need to be changed
+    def get_tweets_dict(self):
+        """
+
+        """
+        return self.tweets_dic
+
+    def compute_weights_per_doc(self):
+        """
+        Updates W_ij for each document
+        """
+        terms_to_remove = []
+        for term, posting_list in self.postingDict.items():
+            if len(self.postingDict[term]) == 1:
+                terms_to_remove.append(term)
+            for tweet in posting_list:
+                self.tweets_dic[tweet[0]][0] += (tweet[1] *
+                                                 np.log10(self.num_of_document / self.inverted_idx[term])) ** 2
+        print(len(self.postingDict.keys()))
+        for term in terms_to_remove:
+            self.postingDict.pop(term)
+        print(len(self.postingDict.keys()))
+        # print(self.num_of_document)
