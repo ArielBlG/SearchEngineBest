@@ -204,6 +204,7 @@ class Parse:
                 except:
                     pass
             term_dict[term] = term_dict.get(term, 0) + 1
+            a= 3
             if term_dict[term] > max:
                 max = term_dict[term]
         self.doc_vector = self.doc_vector / self.num_of_vectors
