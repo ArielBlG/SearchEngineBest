@@ -3,14 +3,12 @@ import pickle
 import string
 import utils
 from nltk.corpus import stopwords
-from nltk.stem.porter import *
+
 from document import Document
 from parse_patterns import *
 import re
 import spacy
-from gensim.models import KeyedVectors
-import numpy as np
-# stemmer = PorterStemmer()
+
 # from nltk.tokenize import TweetTokenizer
 
 # tknzr = TweetTokenizer()
@@ -27,10 +25,6 @@ class Parse:
         self.stop_words = set(stopwords.words('english'))
         self.special_words = []
         self.lemma_dict = {}
-        self.wv = KeyedVectors.load("word2vec.wordvectors", mmap='r')
-        self.doc_vector = np.zeros(300)
-        self.num_of_vectors = 0
-        # self.wv =
         # self.frequency_dictionary = {}
         # path = os.path.dirname(os.path.realpath(__file__)) + '\\Preprocessing\\' + "EntitySet.pickle"
         # file = open(path, "rb")
@@ -126,7 +120,7 @@ class Parse:
         :return:
         """
         full_text = text
-        text = self.get_special_tokens(full_text)
+        text = self.get_special_tokens(text)
         # text_tokens = tknzr.tokenize(text)
         text_tokens = re.findall(TOKENIZER_PATTERN, text)
         new_text_tokens = [contractions_dict[word.lower()] if word.lower() in contractions_dict else word for word in
@@ -161,7 +155,7 @@ class Parse:
         :param doc_as_list: list re-preseting the tweet.
         :return: Document object with corresponding fields.
         """
-
+        self.special_words = []
         tweet_id = doc_as_list[0]
         # tweet_date = doc_as_list[1]
         full_text = doc_as_list[2]
@@ -182,11 +176,7 @@ class Parse:
         doc_length = len(tokenized_text)  # after text operations.
         max = 1
         term_dict = {}
-        self.doc_vector = np.zeros(300)
-        self.num_of_vectors = 0
         for term in tokenized_text:
-
-            # term = stemmer.stem(term)
             if term[0] == "#":
                 term = term.lower()
             if not all(ord(c) < 128 for c in term):
@@ -203,28 +193,14 @@ class Parse:
                 if len(term_nlp) < 2:
                     self.lemma_dict[term] = term_nlp[0].lemma_
                     term = self.lemma_dict[term]
-            if term.isalpha():
-                try:
-                    vector = self.wv[term]
-                    self.num_of_vectors += 1
-                    self.doc_vector += vector
-                except:
-                    pass
             if term not in term_dict.keys():
                 term_dict[term] = 1
             else:
                 term_dict[term] += 1
                 if term_dict[term] > max:
                     max = term_dict[term]
-        self.doc_vector = self.doc_vector / self.num_of_vectors
-        # print(doc_length - self.num_of_vectors)
-        document = Document(tweet_id=tweet_id,
-                            term_doc_dictionary=term_dict,
-                            doc_length=doc_length,
-                            max_unique=max,
-                            rt_no_text=rt_no_text,
-                            vector=self.doc_vector)
-        self.special_words = []
+
+        document = Document(tweet_id=tweet_id, term_doc_dictionary=term_dict, doc_length=doc_length, max_unique=max,rt_no_text=rt_no_text)
         return document
 
     def flush_lemma(self):
