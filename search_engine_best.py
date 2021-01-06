@@ -44,7 +44,7 @@ class SearchEngine:
             # index the document data
             self._indexer.add_new_doc(parsed_document)
         self._indexer.compute_weights_per_doc()
-        self._indexer.save_index("idx_bench")
+        # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
 
     # DO NOT MODIFY THIS SIGNATURE
@@ -90,7 +90,7 @@ def main():
     search_engine.build_index_from_parquet('data/benchmark_data_train.snappy.parquet')
     end = time.time()
     print(end - start)
-    print(search_engine.search("mask corona children"))
+    # print(search_engine.search("mask corona children"))
 
 
 if __name__ == '__main__':

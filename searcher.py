@@ -46,7 +46,10 @@ class Searcher:
                                                 vector=np.array(list(vector_query)),
                                                 tweets_dict=tweets_dict,
                                                 w2v_vector=w2v_vector)
-        ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_]
+        # new_ranked_doc = []
+        # ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ ]
+        ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ if doc_id[1] > 0.4]
+        n_relevant = len(ranked_doc_ids)
         return n_relevant, ranked_doc_ids
 
     # feel free to change the signature and/or implementation of this function 
@@ -85,9 +88,11 @@ class Searcher:
                 dic_term[term] = 1
         num_of_docs = self._indexer.get_number_of_docs()
         for key, value in dic_term.items():
-            # dic_term[key] = value / max_occurrence \
-            #                 * np.log10(num_of_docs / self._indexer.get_term_from_inverted(key))
-            dic_term[key] = value / max_occurrence
+            try:
+                dic_term[key] = value / max_occurrence \
+                                * np.log10(num_of_docs / self._indexer.get_term_from_inverted(key))
+            except:
+                dic_term[key] = value / max_occurrence
         return dic_term.values()
 
     def get_w2v_vector_query(self, query_list):
