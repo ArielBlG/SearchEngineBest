@@ -17,7 +17,7 @@ class Searcher:
         self._indexer = indexer
         self._ranker = Ranker()
         self._model = model
-        self.wv = KeyedVectors.load("word2vec.wordvectors", mmap='r')
+        self.wv = model
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -48,7 +48,7 @@ class Searcher:
                                                 w2v_vector=w2v_vector)
         # new_ranked_doc = []
         # ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ ]
-        ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ if doc_id[1] > 0.4]
+        ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ if doc_id[1] > 0.6]
         n_relevant = len(ranked_doc_ids)
         return n_relevant, ranked_doc_ids
 
