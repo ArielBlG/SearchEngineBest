@@ -101,26 +101,25 @@ class Parse(object):
         The function handles the url inside a tweet
         :param token: token from the tweet
         """
-        if 'twitter.com/i/web' in token:
+        if 'twitter.com/i/' in token:
             return
         url_list = re.split('":"|,', token[:-1])[1::2]
         for url in url_list:
             url = url[:-1]
             extract = url.split('www.')
-            if len(extract) == 1:
-                if extract[0][0:3] == "htt":
-                    extract = url.split('//')
-                else:
-                    extract = url.split('/')
-                if len(extract) > 1:
-                    extract = extract[1].split('/', maxsplit=1)
-                    if extract[0] != '':
-                        self.special_words.append(extract[0])
-                    if len(extract) != 1:
-                        extract = re.split(r'\W+', extract[1])
-                        for ex in extract:
-                            if (ex != ''):
-                                self.special_words.append(ex)
+            if extract[0][0:3] == "htt":
+                extract = url.split('//')
+            else:
+                extract = url.split('/')
+            if len(extract) > 1:
+                extract = extract[1].split('/', maxsplit=1)
+                if extract[0] != '':
+                    self.special_words.append(extract[0])
+                if len(extract) != 1:
+                    extract = re.split(r'\W+', extract[1])
+                    for ex in extract:
+                        if (ex != ''):
+                            self.special_words.append(ex)
 
     # def handle_numbers_pattern(self, token):
     #     """
@@ -205,7 +204,7 @@ class Parse(object):
 
         rt_flag = full_text.startswith(('RT ', 'rt '))
         rt_no_text = 0.85 if rt_flag and not doc_as_list[8] else 1
-        if url != '{}' and not rt_no_text:
+        if url != '{}':
             self.handle_url(url)
 
         tokenized_text = self.parse_sentence(full_text)
