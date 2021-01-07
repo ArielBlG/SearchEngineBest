@@ -28,11 +28,13 @@ def spell_checker_search(query_list):
     return new_query_list
 
 
-# TODO: fix documentation
-def _get_words_for_expansion(ranked_doc_, query_as_list, tweets_dic):
+def _get_words_for_expansion(ranked_doc_, query_as_list, tweets_dic, k=1):
     """
-    This function tries to fix misspelling terms inside a query
-    :param query_list: list of terms representing the query's terms
+    This function returns a new word of each word inside query_as_list
+    :param ranked_doc_: dataframe containing docs and their ranks from first check
+    :param query_as_list: list of terms representing the query's terms
+    :param tweets_dic: tweets dictionary
+    :param k: number of words to expand, defaults to 1
     :return: new query list after fixing misspells
     """
     bag_of_words = list(
@@ -124,39 +126,16 @@ class Searcher:
             and the last is the least relevant result.
         """
         start = time.time()
-        # query_as_list = self._parser.parse_sentence(query)
-        # query_as_list = spell_checker_search(query_as_list)
-        # if self.word_net_flag:
-        #     query_as_list = self.word_net_search(query_as_list)
-        # # query_as_list = self.expand_query(query_as_list, sim_to_expand=0.75)
-        # query_as_list = self._parser.get_lemma_text(query_as_list)
-        # vector_query = self.get_vector_query(query_as_list)
-        # w2v_vector = self.get_w2v_vector_query(query_as_list)
         w2v_vector, vector_query, query_as_list = self.initiate_search(query=query)
         ranked_doc_ = self.initiate_ranking(query_as_list, vector_query, w2v_vector)
-        # relevant_docs, doc_id_set = self._relevant_docs_from_posting(query_as_list)
-        # ranked_doc_ = Ranker.rank_relevant_docs(relevant_docs,
-        #                                         doc_set=doc_id_set,
-        #                                         vector=np.array(list(vector_query)),
-        #                                         tweets_dict=tweets_dict,
-        #                                         w2v_vector=w2v_vector)
         ranked_doc_ = ranked_doc_[:500]
         tweets_dict = self._indexer.get_tweets_dict()
         query_as_list += _get_words_for_expansion(ranked_doc_, query_as_list, tweets_dict)
         vector_query = self.get_vector_query(query_as_list)
         w2v_vector = self.get_w2v_vector_query(query_as_list)
         ranked_doc_ = self.initiate_ranking(query_as_list, vector_query, w2v_vector)
-        # relevant_docs, doc_id_set = self._relevant_docs_from_posting(query_as_list)
-        # ranked_doc_ = Ranker.rank_relevant_docs(relevant_docs,
-        #                                         doc_set=doc_id_set,
-        #                                         vector=np.array(list(vector_query)),
-        #                                         tweets_dict=tweets_dict,
-        #                                         w2v_vector=w2v_vector)
-        # len_ranked = len(ranked_doc_)
         ranked_doc_before = ranked_doc_[:round(len(ranked_doc_) * 0.64)]
         ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_before]
-        # ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ if doc_id[1] > 0.5]
-        # n_relevant = len(ranked_doc_ids)
         print(f"finished searcher in {time.time()-start}")
         return len(ranked_doc_ids), ranked_doc_ids
 
@@ -175,27 +154,9 @@ class Searcher:
             and the last is the least relevant result.
         """
         start = time.time()
-        # query_as_list = self._parser.parse_sentence(query)
-        # query_as_list = spell_checker_search(query_as_list)
-        # if self.word_net_flag:
-        #     query_as_list = self.word_net_search(query_as_list)
-        # # query_as_list = self.expand_query(query_as_list, sim_to_expand=0.75)
-        # query_as_list = self._parser.get_lemma_text(query_as_list)
-        # vector_query = self.get_vector_query(query_as_list)
-        # w2v_vector = self.get_w2v_vector_query(query_as_list)
         w2v_vector, vector_query, query_as_list = self.initiate_search(query=query)
         ranked_doc_ = self.initiate_ranking(query_as_list, vector_query, w2v_vector)
-        # relevant_docs, doc_id_set = self._relevant_docs_from_posting(query_as_list)
-        # n_relevant = len(relevant_docs)
-
-        # tweets_dict = self._indexer.get_tweets_dict()
-        # ranked_doc_ = Ranker.rank_relevant_docs(relevant_docs,
-        #                                         doc_set=doc_id_set,
-        #                                         vector=np.array(list(vector_query)),
-        #                                         tweets_dict=tweets_dict,
-        #                                         w2v_vector=w2v_vector)
         ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ if doc_id[1] > 0.4]
-        # n_relevant = len(ranked_doc_ids)
         print(f"finished searcher in {time.time()-start}")
         return len(ranked_doc_ids), ranked_doc_ids
 
