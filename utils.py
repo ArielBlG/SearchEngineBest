@@ -4,7 +4,6 @@ import zipfile
 import re
 
 
-
 def save_obj(obj, name):
     """
     This function save an object as a pickle.
@@ -30,8 +29,11 @@ def load_obj(name):
             return pickle.load(f)
 
 
-__fid_ptrn = re.compile("(?<=/folders/)([\w-]+)|(?<=%2Ffolders%2F)([\w-]+)|(?<=/file/d/)([\w-]+)|(?<=%2Ffile%2Fd%2F)([\w-]+)|(?<=id=)([\w-]+)|(?<=id%3D)([\w-]+)")
+__fid_ptrn = re.compile(
+    "(?<=/folders/)([\w-]+)|(?<=%2Ffolders%2F)([\w-]+)|(?<=/file/d/)([\w-]+)|(?<=%2Ffile%2Fd%2F)([\w-]+)|(?<=id=)([\w-]+)|(?<=id%3D)([\w-]+)")
 __gdrive_url = "https://docs.google.com/uc?export=download"
+
+
 def download_file_from_google_drive(url, destination):
     m = __fid_ptrn.search(url)
     if m is None:
@@ -39,14 +41,15 @@ def download_file_from_google_drive(url, destination):
     file_id = m.group()
     session = requests.Session()
 
-    response = session.get(__gdrive_url, params = { 'id' : file_id }, stream = True)
+    response = session.get(__gdrive_url, params={'id': file_id}, stream=True)
     token = _get_confirm_token(response)
 
     if token:
-        params = { 'id' : file_id, 'confirm' : token }
-        response = session.get(__gdrive_url, params = params, stream = True)
+        params = {'id': file_id, 'confirm': token}
+        response = session.get(__gdrive_url, params=params, stream=True)
 
-    _save_response_content(response, destination)    
+    _save_response_content(response, destination)
+
 
 def _get_confirm_token(response):
     for key, value in response.cookies.items():
@@ -55,14 +58,16 @@ def _get_confirm_token(response):
 
     return None
 
+
 def _save_response_content(response, destination):
     CHUNK_SIZE = 32768
 
     with open(destination, "wb") as f:
         for chunk in response.iter_content(CHUNK_SIZE):
-            if chunk: # filter out keep-alive new chunks
+            if chunk:  # filter out keep-alive new chunks
                 f.write(chunk)
-        
+
+
 def unzip_file(file_path, target_dir):
     with zipfile.ZipFile(file_path, 'r') as z:
         z.extractall(target_dir)

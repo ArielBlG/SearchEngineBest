@@ -27,7 +27,7 @@ class Indexer:
         document_dictionary = document.term_doc_dictionary
         max_unique = document.max_unique
         tweet_id = document.tweet_id
-        self.tweets_dic[tweet_id] = [0, document.rt_no_text, document.doc_length, document.doc_vector]  #
+        self.tweets_dic[tweet_id] = [0, document.rt_no_text, document.doc_length, document.doc_vector, document_dictionary]  #
         self.num_of_document += 1
         self.avg_data_size += document.doc_length
         # doc_vector = document.doc_vector

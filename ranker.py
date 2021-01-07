@@ -48,11 +48,11 @@ class Ranker:
         # similarities = 1 - cdist(matrix, vector, metric='cosine')
         res_vector = []
         vector_magnitude = np.sqrt(vector.dot(vector))
-
+        norm_w2v_vector = norm(w2v_vector)
         for index, row in enumerate(matrix):
-            row_magnitude = np.sqrt(tweets_w_ij[index])
-            cos_sim_tf_idf = np.dot(row, vector) / (vector_magnitude * row_magnitude)
-            cos_sim_w2v = np.dot(w2v_vector, w2v_matrix[index]) / (norm(w2v_vector) * norm(w2v_matrix[index]))
+            # row_magnitude = np.sqrt(tweets_w_ij[index])
+            # cos_sim_tf_idf = np.dot(row, vector) / (vector_magnitude * row_magnitude)
+            cos_sim_w2v = np.dot(w2v_vector, w2v_matrix[index]) / (norm_w2v_vector  * norm(w2v_matrix[index]))
 
             # res_vector.append(0.2 * cos_sim_tf_idf + 0.8*cos_sim_w2v)
             res_vector.append(cos_sim_w2v)

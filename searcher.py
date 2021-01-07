@@ -1,9 +1,27 @@
+import time
+
 from sortedcontainers import SortedDict
 import numpy as np
-
+from nltk.corpus import wordnet as wn
 from ranker import Ranker
+from spellchecker import SpellChecker
+
+spell = SpellChecker()
 import utils
 from gensim.models import KeyedVectors
+
+
+def spell_checker_search(query_list):
+    new_query_list = []
+    for term in query_list:
+        misspelled = spell.unknown([term])
+        if not misspelled:
+            new_query_list.append(term)
+        else:
+            new_query_list.append(spell.correction(misspelled.pop()))
+            new_query_list.append(term)
+    return new_query_list
+
 
 # DO NOT MODIFY CLASS NAME
 class Searcher:
@@ -12,12 +30,80 @@ class Searcher:
     # parameter allows you to pass in a precomputed model that is already in 
     # memory for the searcher to use such as LSI, LDA, Word2vec models. 
     # MAKE SURE YOU DON'T LOAD A MODEL INTO MEMORY HERE AS THIS IS RUN AT QUERY TIME.
-    def __init__(self, parser, indexer, model=None):
+    def __init__(self, parser, indexer, model=None, **kwargs):
         self._parser = parser
         self._indexer = indexer
         self._ranker = Ranker()
         self._model = model
         self.wv = model
+        if kwargs.get("word_net"):
+            self.word_net_flag = True
+        else:
+            self.word_net_flag = False
+
+    def search_2(self, query):
+        query_as_list = self._parser.parse_sentence(query)
+        query_as_list = spell_checker_search(query_as_list)
+        if self.word_net_flag:
+            query_as_list = self.word_net_search(query_as_list)
+        # query_as_list = self.expand_query(query_as_list, sim_to_expand=0.75)
+        query_as_list = self._parser.get_lemma_text(query_as_list)
+        vector_query = self.get_vector_query(query_as_list)
+        w2v_vector = self.get_w2v_vector_query(query_as_list)
+        relevant_docs, doc_id_set = self._relevant_docs_from_posting(query_as_list)
+        n_relevant = len(relevant_docs)
+        tweets_dict = self._indexer.get_tweets_dict()
+        ranked_doc_ = Ranker.rank_relevant_docs(relevant_docs,
+                                                doc_set=doc_id_set,
+                                                vector=np.array(list(vector_query)),
+                                                tweets_dict=tweets_dict,
+                                                w2v_vector=w2v_vector)
+        ranked_doc_ = ranked_doc_[:500]
+        query_as_list += self._get_words_for_expansion(ranked_doc_, query_as_list, tweets_dict)
+        vector_query = self.get_vector_query(query_as_list)
+        w2v_vector = self.get_w2v_vector_query(query_as_list)
+        relevant_docs, doc_id_set = self._relevant_docs_from_posting(query_as_list)
+        ranked_doc_ = Ranker.rank_relevant_docs(relevant_docs,
+                                                doc_set=doc_id_set,
+                                                vector=np.array(list(vector_query)),
+                                                tweets_dict=tweets_dict,
+                                                w2v_vector=w2v_vector)
+        new_ranked_doc = []
+        len_ranked = len(ranked_doc_)
+        ranked_doc_before = ranked_doc_[:round(len_ranked*0.64)]
+        ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_before]
+        # ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ if doc_id[1] > 0.5]
+        n_relevant = len(ranked_doc_ids)
+        return n_relevant, ranked_doc_ids
+
+    def _get_words_for_expansion(self, ranked_doc_, query_as_list, tweets_dic):
+        bag_of_words = list(
+            map(lambda docID: list(tweets_dic[docID][4].keys()), list(map(lambda doc: doc[0], ranked_doc_))))
+        bag_of_words = sorted(list(set([item for sublist in bag_of_words for item in sublist])))
+        matrix = {}
+        for word in bag_of_words:
+            matrix[word] = dict(map(lambda word: (word, 0), bag_of_words))
+
+        for doc_id in ranked_doc_:
+            for term_i in tweets_dic[doc_id[0]][4]:
+                for term_j in tweets_dic[doc_id[0]][4]:
+                    matrix[term_i][term_j] += tweets_dic[doc_id[0]][4][term_i] * tweets_dic[doc_id[0]][4][term_j]
+
+        matrix_relevant = {}
+        words_after_expansion = []
+        for word in query_as_list:
+            if word in matrix:
+                matrix_relevant[word] = []
+                for term in matrix[word]:
+                    if term not in query_as_list:
+                        matrix_relevant[word].append(
+                            (matrix[word][term] / (matrix[word][word] + matrix[term][term] - matrix[word][term]), term))
+
+        for word in query_as_list:
+            if word in matrix_relevant and len(matrix_relevant[word]) > 0:
+                words_after_expansion.append(max(matrix_relevant[word], key=lambda item: item[0])[1])
+
+        return words_after_expansion
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -34,6 +120,9 @@ class Searcher:
             and the last is the least relevant result.
         """
         query_as_list = self._parser.parse_sentence(query)
+        query_as_list = spell_checker_search(query_as_list)
+        if self.word_net_flag:
+            query_as_list = self.word_net_search(query_as_list)
         # query_as_list = self.expand_query(query_as_list, sim_to_expand=0.75)
         query_as_list = self._parser.get_lemma_text(query_as_list)
         vector_query = self.get_vector_query(query_as_list)
@@ -48,7 +137,8 @@ class Searcher:
                                                 w2v_vector=w2v_vector)
         # new_ranked_doc = []
         # ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ ]
-        ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ if doc_id[1] > 0.6]
+        ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_ if doc_id[1] > 0.4]
+        # ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_]
         n_relevant = len(ranked_doc_ids)
         return n_relevant, ranked_doc_ids
 
@@ -116,3 +206,23 @@ class Searcher:
             except:
                 pass
         return query_as_list + new_query_list
+
+    def word_net_search(self, query_list):
+        list_to_append = []
+        start = time.time()
+
+        for term in query_list:
+            flag = True
+            try:
+                definition = wn.synset(term + '.n.01').definition()
+            except:
+                flag = False
+            synsets = wn.synsets(term)
+            len_synsets = len(synsets)
+            index = 0
+            for syn in synsets:
+                word = syn.lemmas()[0].name()
+                if word != term and flag and definition == syn.definition():
+                    list_to_append.append(word)
+        print(f"time for wordnet {time.time() - start}")
+        return query_list + list_to_append
