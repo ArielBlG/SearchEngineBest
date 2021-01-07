@@ -19,7 +19,7 @@ class SearchEngine:
     def __init__(self, config=None):
         self._config = config
         self._indexer = Indexer(config)
-        self._model = self.load_precomputed_model(os.path.join('.', 'model1'))
+        self._model = self.load_precomputed_model(os.path.join('.', 'model'))
         self._parser = Parse(model=self._model)
 
     # DO NOT MODIFY THIS SIGNATURE
@@ -65,7 +65,7 @@ class SearchEngine:
         This is where you would load models like word2vec, LSI, LDA, etc. and 
         assign to self._model, which is passed on to the searcher at query time.
         """
-        return KeyedVectors.load(model_dir, mmap='r')
+        return KeyedVectors.load(model_dir + '/model', mmap='r')
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
