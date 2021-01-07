@@ -10,6 +10,7 @@ import re
 import spacy
 from gensim.models import KeyedVectors
 import numpy as np
+
 # stemmer = PorterStemmer()
 # from nltk.tokenize import TweetTokenizer
 
@@ -21,13 +22,15 @@ nlp = spacy.load('en_core_web_sm')
 pattern_to_delete = reserved_word_pattern + '|' + url_pattern
 punct = r"""!"#$%&'()*-+,./:;<=>?[\]^_`{|}~“”’!!…"""
 
-class Parse:
+
+class Parse(object):
 
     def __init__(self, model=None):
         self.stop_words = set(stopwords.words('english'))
         self.special_words = []
         self.lemma_dict = {}
-        self.wv = model
+        # self.wv = model
+        self._model = model
         self.doc_vector = np.zeros(300)
         self.num_of_vectors = 0
         # self.wv =
@@ -37,7 +40,21 @@ class Parse:
         # self.ent_dict = pickle.load(file)
         # file.close()
 
+    @property
+    def model(self):
+        return self._model
+
+    @model.setter
+    def model(self, model):
+        self._model = model
+
     def get_special_tokens(self, tweet):
+        """
+        The function removes and extract all the special parsing rules
+        :param tweet: string representing the tweet
+        :return: returns a string representing the tweet and removing and extracting parsing rules
+        """
+
         def _sub(match):
             """
             Function to append special words, and replace them in the original tweet
@@ -58,6 +75,10 @@ class Parse:
         return tweet
 
     def handle_hashtags_mentions(self, special_tokens_list):
+        """
+        The function handles the hashtags mention inside a tweet
+        :param special_tokens_list: list of special tokens to update
+        """
         for token in special_tokens_list:
             if token[0] == "#":
                 if (len(token) == 1):
@@ -76,6 +97,10 @@ class Parse:
                 self.special_words.append(token)
 
     def handle_url(self, token):
+        """
+        The function handles the url inside a tweet
+        :param token: token from the tweet
+        """
         if 'twitter.com/i/web' in token:
             return
         url_list = re.split('":"|,', token[:-1])[1::2]
@@ -97,33 +122,37 @@ class Parse:
                             if (ex != ''):
                                 self.special_words.append(ex)
 
-    def handle_ents(self, token):
-        token = re.sub(million_pre_pattern, million_post_pattern, token)
-        token = re.sub(thousand_pre_pattern, thousand_post_pattern, token)
-        token = re.sub(billion_pre_pattern, billion_post_pattern, token)
-        token = re.sub(percent_pre_pattern, percent_post_pattern, token)
-        self.special_words.append(token)
+    # def handle_numbers_pattern(self, token):
+    #     """
+    #     The function handles the special number patterns inside a tweet
+    #     :param token: token from the tweet
+    #     """
+    #     token = re.sub(million_pre_pattern, million_post_pattern, token)
+    #     token = re.sub(thousand_pre_pattern, thousand_post_pattern, token)
+    #     token = re.sub(billion_pre_pattern, billion_post_pattern, token)
+    #     token = re.sub(percent_pre_pattern, percent_post_pattern, token)
+    #     self.special_words.append(token)
 
-    def re_tokenize(self, pre_tokenized_text, lower=False, lemma=False):
-        token_list = []
-        for token in pre_tokenized_text:
-            if not token.is_punct and not token.is_space and not token.is_stop and str(token) != '️':
-                if lemma:
-                    token_list.append(token.lemma_)
-                else:
-                    if lower:
-                        token_list.append(token.lower_)
-                    else:
-                        token_list.append(token.norm_)
-        for special_word in self.special_words:
-            token_list.append(special_word)
-        return token_list
+    # def re_tokenize(self, pre_tokenized_text, lower=False, lemma=False):
+    #     token_list = []
+    #     for token in pre_tokenized_text:
+    #         if not token.is_punct and not token.is_space and not token.is_stop and str(token) != '️':
+    #             if lemma:
+    #                 token_list.append(token.lemma_)
+    #             else:
+    #                 if lower:
+    #                     token_list.append(token.lower_)
+    #                 else:
+    #                     token_list.append(token.norm_)
+    #     for special_word in self.special_words:
+    #         token_list.append(special_word)
+    #     return token_list
 
     def parse_sentence(self, text):
         """
         This function tokenize, remove stop words and apply lower case for every word within the text
-        :param text:
-        :return:
+        :param text: text to tokenize and parse
+        :return: list representing the new tokens from a given text
         """
         full_text = text
         text = self.get_special_tokens(text)
@@ -133,18 +162,27 @@ class Parse:
                                text_tokens))  # Separates contractions
         text_tokens = [item for sublist in text_tokens for item in sublist]  # Flatting list [[q],[v]]->[q,v]
         text_tokens = list(filter(lambda item: item.lower() not in self.stop_words, text_tokens))
-        entity_list = self.find_ent(full_text)
+        entity_list = self.find_entities(full_text)
         entity_list = list(filter(lambda item: item.lower() not in self.stop_words, entity_list))
         text_tokens = list(map(lambda word: word.lower(), text_tokens))  # Lower all words
         text_tokens += entity_list
         self.special_words = []
         return text_tokens
 
-    def find_ent(self, full_text):
+    def find_entities(self, full_text):
+        """
+        The function finds the entities inside a tweet
+        :param token: token from the tweet
+        """
         lst = re.findall(NER_pattern, full_text)
         return lst
 
     def get_lemma_text(self, text):
+        """
+        The function turns a text into lemmataize text
+        :param text: text to lemmatize
+        :return: list of lemmatize tokens from a given text
+        """
         new_list = list(map(lambda term: nlp(term, disable=["tagger", "parser", "ner"])[0].lemma_, text))
         return new_list
 
@@ -165,7 +203,7 @@ class Parse:
         quote_text = doc_as_list[6]
         # quote_url = doc_as_list[7]
 
-        rt_flag = full_text.startswith(('RT ','rt '))
+        rt_flag = full_text.startswith(('RT ', 'rt '))
         rt_no_text = 0.85 if rt_flag and not doc_as_list[8] else 1
         if url != '{}' and not rt_no_text:
             self.handle_url(url)
@@ -198,7 +236,7 @@ class Parse:
                     term = self.lemma_dict[term]
             if term.isalpha():
                 try:
-                    vector = self.wv[term]
+                    vector = self._model[term]
                     self.num_of_vectors += 1
                     self.doc_vector += vector
                 except:
@@ -218,6 +256,9 @@ class Parse:
         return document
 
     def flush_lemma(self):
+        """
+        The function flushes the lemmatization dictionary to the disk
+        """
         path = utils.lemma_dictionary + 'lemma_dict.pickle'
         file = open(path, 'wb')
         pickle.dump(self.lemma_dict, file)
@@ -225,6 +266,9 @@ class Parse:
         self.lemma_dict.clear()
 
     def flush_frequency_dictionary(self):
+        """
+        The function flishes the frequency dictionary to the disk
+        """
         path = utils.frequency_dictionary + 'frequency_dictionary.pickle'
         file = open(path, 'wb')
         pickle.dump(self.frequency_dictionary, file)

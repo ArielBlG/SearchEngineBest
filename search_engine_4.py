@@ -19,7 +19,8 @@ class SearchEngine:
     def __init__(self, config=None):
         self._config = config
         self._indexer = Indexer(config)
-        self._model = self.load_precomputed_model(os.path.join('.', 'model'))
+        self._model = None
+        self.load_precomputed_model(os.path.join('.', 'model'))
         self._parser = Parse(model=self._model)
 
     # DO NOT MODIFY THIS SIGNATURE
@@ -65,7 +66,7 @@ class SearchEngine:
         This is where you would load models like word2vec, LSI, LDA, etc. and 
         assign to self._model, which is passed on to the searcher at query time.
         """
-        return KeyedVectors.load(model_dir + '/model', mmap='r')
+        self._model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -80,7 +81,7 @@ class SearchEngine:
             a list of tweet_ids where the first element is the most relavant 
             and the last is the least relevant result.
         """
-        searcher = Searcher(self._parser, self._indexer, model=self._model, word_net=True)
+        searcher = Searcher(self._parser, self._indexer, model=self._model, word_net=True, w2v=True)
         return searcher.search(query)
 
 

@@ -88,7 +88,7 @@ class Indexer:
 
     def get_term_from_inverted(self, term):
         """
-        retur the value of the received term in the inverted index
+        return the value of the received term in the inverted index
         """
         return self.inverted_idx[term]
 
@@ -98,10 +98,9 @@ class Indexer:
         """
         return len(self.tweets_dic)
 
-    # TODO: need to be changed
     def get_tweets_dict(self):
         """
-
+        The function returns the tweets dict
         """
         return self.tweets_dic
 
