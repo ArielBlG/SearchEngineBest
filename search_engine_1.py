@@ -19,8 +19,8 @@ class SearchEngine:
     def __init__(self, config=None):
         self._config = config
         self._indexer = Indexer(config)
-        self._model = self.load_precomputed_model(os.path.join('.', 'model1'))
-        self._parser = Parse(model=self._model)
+        self._model = None
+        self._parser = Parse(model=None)
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -32,6 +32,7 @@ class SearchEngine:
         Output:
             No output, just modifies the internal _indexer object.
         """
+        start = time.time()
         df = pd.read_parquet(fn, engine="pyarrow")
         documents_list = df.values.tolist()
         # Iterate over every document in the file
@@ -46,6 +47,7 @@ class SearchEngine:
         self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
+        print(f"finished parsing and indexing method 1 in {time.time()-start}")
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -65,7 +67,7 @@ class SearchEngine:
         This is where you would load models like word2vec, LSI, LDA, etc. and 
         assign to self._model, which is passed on to the searcher at query time.
         """
-        return KeyedVectors.load(model_dir, mmap='r')
+        self._model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -80,7 +82,7 @@ class SearchEngine:
             a list of tweet_ids where the first element is the most relavant 
             and the last is the least relevant result.
         """
-        searcher = Searcher(self._parser, self._indexer, model=self._model)
+        searcher = Searcher(self._parser, self._indexer, model=self._model, tf_idf=True)
         return searcher.search(query)
 
 

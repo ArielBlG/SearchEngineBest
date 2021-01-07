@@ -48,7 +48,7 @@ class SearchEngine:
         self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
-        print(f"finished parsing and indexing method 2 in {time.time()-start}")
+        print(f"finished parsing and indexing method 3 in {time.time()-start}")
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -68,9 +68,7 @@ class SearchEngine:
         This is where you would load models like word2vec, LSI, LDA, etc. and 
         assign to self._model, which is passed on to the searcher at query time.
         """
-        model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
-        # self._parser.model = model
-        return model
+        self._model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -86,7 +84,7 @@ class SearchEngine:
             and the last is the least relevant result.
         """
         searcher = Searcher(self._parser, self._indexer, model=self._model, word_net=True, w2v=True)
-        return searcher.search_2(query)
+        return searcher.search(query)
 
 
 def main():

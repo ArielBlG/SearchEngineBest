@@ -1,14 +1,14 @@
 class ConfigClass:
     def __init__(self):
         # link to a zip file in google drive with your pretrained model
-        self._model_url = None
+        self._model_url = "https://drive.google.com/file/d/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb/view?usp=sharing"
         # False/True flag indicating whether the testing system will download 
         # and overwrite the existing model files. In other words, keep this as 
         # False until you update the model, submit with True to download 
         # the updated model (with a valid model_url), then turn back to False 
         # in subsequent submissions to avoid the slow downloading of the large 
         # model file with every submission.
-        self._download_model = False
+        self._download_model = True
 
         self.corpusPath = ''
         self.savedFileMainFolder = ''

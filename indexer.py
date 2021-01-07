@@ -27,7 +27,7 @@ class Indexer:
         document_dictionary = document.term_doc_dictionary
         max_unique = document.max_unique
         tweet_id = document.tweet_id
-        self.tweets_dic[tweet_id] = [0, document.rt_no_text, document.doc_length, document.doc_vector]  #
+        self.tweets_dic[tweet_id] = [0, document.rt_no_text, document.doc_length, document.doc_vector, document_dictionary]  #
         self.num_of_document += 1
         self.avg_data_size += document.doc_length
         # doc_vector = document.doc_vector
@@ -88,7 +88,7 @@ class Indexer:
 
     def get_term_from_inverted(self, term):
         """
-        retur the value of the received term in the inverted index
+        return the value of the received term in the inverted index
         """
         return self.inverted_idx[term]
 
@@ -98,10 +98,9 @@ class Indexer:
         """
         return len(self.tweets_dic)
 
-    # TODO: need to be changed
     def get_tweets_dict(self):
         """
-
+        The function returns the tweets dict
         """
         return self.tweets_dic
 
