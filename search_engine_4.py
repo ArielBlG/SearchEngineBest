@@ -33,17 +33,16 @@ class SearchEngine:
         Output:
             No output, just modifies the internal _indexer object.
         """
+        self._parser.spell_checker = True
         df = pd.read_parquet(fn, engine="pyarrow")
         documents_list = df.values.tolist()
         # Iterate over every document in the file
         number_of_documents = 0
         for idx, document in enumerate(documents_list):
             # parse the document
-            parsed_document = self._parser.parse_doc(document)
-            number_of_documents += 1
-            # print(number_of_documents)
-            # index the document data
-            self._indexer.add_new_doc(parsed_document)
+            for parsed_document in self._parser.parse_doc(document):
+                number_of_documents += 1
+                self._indexer.add_new_doc(parsed_document)
         self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')

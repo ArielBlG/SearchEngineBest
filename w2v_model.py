@@ -31,5 +31,5 @@ w2v_model.train(sentences, total_examples=w2v_model.corpus_count, epochs=30, rep
 print('Time to train the model: {} mins'.format(round((time() - t) / 60, 2)))
 w2v_model.init_sims(replace=True)
 word_vectors = w2v_model.wv
-word_vectors.save("word2vec_vectors.bin", binary=True)
+word_vectors.save_word2vec_format("word2vec_model.bin", binary=True)
 w2v_model.save("word2vec_model.bin", binary=True)

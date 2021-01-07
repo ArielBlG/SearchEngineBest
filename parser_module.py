@@ -23,6 +23,8 @@ pattern_to_delete = reserved_word_pattern + '|' + url_pattern
 punct = r"""!"#$%&'()*-+,./:;<=>?[\]^_`{|}~“”’!!…"""
 
 
+
+
 class Parse(object):
 
     def __init__(self, model=None):
@@ -33,6 +35,8 @@ class Parse(object):
         self._model = model
         self.doc_vector = np.zeros(300)
         self.num_of_vectors = 0
+        self._spell_checker = False
+        self.spell = None
         # self.wv =
         # self.frequency_dictionary = {}
         # path = os.path.dirname(os.path.realpath(__file__)) + '\\Preprocessing\\' + "EntitySet.pickle"
@@ -42,10 +46,37 @@ class Parse(object):
 
     @property
     def model(self):
+        """
+        The function is a property for model
+        :return: returns the model
+        """
         return self._model
+
+    @property
+    def spell_checker(self):
+        """
+        The function is a property for spell checker
+        :return: returns the spell checker
+        """
+        return self._spell_checker
+
+    @spell_checker.setter
+    def spell_checker(self, spell_checker):
+        """
+        The function is a setter for spell checker
+        :param spell_checker: flag representing if spell check is activated or not
+        """
+        if spell_checker:
+            from spellchecker import SpellChecker
+            self.spell = SpellChecker()
+        self._spell_checker = spell_checker
 
     @model.setter
     def model(self, model):
+        """
+        The function is a setter for model
+        :param spell_checker: sets the model object of the class
+        """
         self._model = model
 
     def get_special_tokens(self, tweet):
@@ -73,6 +104,22 @@ class Parse(object):
         tweet = re.sub(percent_pre_pattern, percent_post_pattern, tweet)
         self.handle_hashtags_mentions(special_tokens_list)  # handle the hashtags and mentions
         return tweet
+
+    def spell_checker_search(self, term_list):
+        """
+        This function tries to fix misspelling in terms
+        :param term_list:  list of terms representing the documents's terms
+        :return: new term list after fixing misspells
+        """
+        new_query_list = []
+        for term in term_list:
+            misspelled = self.spell.unknown([term])
+            if not misspelled:
+                new_query_list.append(term)
+            else:
+                new_query_list.append(self.spell.correction(misspelled.pop()))
+                new_query_list.append(term)
+        return new_query_list
 
     def handle_hashtags_mentions(self, special_tokens_list):
         """
@@ -214,8 +261,9 @@ class Parse(object):
         term_dict = {}
         self.doc_vector = np.zeros(300)
         self.num_of_vectors = 0
+        if self._spell_checker:
+            tokenized_text = self.spell_checker_search(tokenized_text)
         for term in tokenized_text:
-
             # term = stemmer.stem(term)
             if term[0] == "#":
                 term = term.lower()
@@ -252,7 +300,7 @@ class Parse(object):
                             rt_no_text=rt_no_text,
                             vector=self.doc_vector)
         self.special_words = []
-        return document
+        yield document
 
     def flush_lemma(self):
         """

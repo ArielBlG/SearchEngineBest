@@ -39,11 +39,9 @@ class SearchEngine:
         number_of_documents = 0
         for idx, document in enumerate(documents_list):
             # parse the document
-            parsed_document = self._parser.parse_doc(document)
-            number_of_documents += 1
-            # print(number_of_documents)
-            # index the document data
-            self._indexer.add_new_doc(parsed_document)
+            for parsed_document in self._parser.parse_doc(document):
+                number_of_documents += 1
+                self._indexer.add_new_doc(parsed_document)
         self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
