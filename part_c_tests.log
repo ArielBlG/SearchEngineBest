@@ -1,520 +1,61 @@
-ERROR 2021-01-08 14:25:53,668: report_part_c.docx does not exist.
-INFO 2021-01-08 14:25:53,779: Successfully loaded benchmark labels data.
-INFO 2021-01-08 14:25:53,788: Successfully loaded queries data.
-DEBUG 2021-01-08 14:25:54,115: Starting new HTTPS connection (1): docs.google.com:443
-DEBUG 2021-01-08 14:25:54,586: https://docs.google.com:443 "GET /uc?export=download&id=1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb HTTP/1.1" 200 None
-DEBUG 2021-01-08 14:25:54,591: Starting new HTTPS connection (2): docs.google.com:443
-DEBUG 2021-01-08 14:25:55,003: https://docs.google.com:443 "GET /uc?export=download&id=1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb&confirm=Bsnt HTTP/1.1" 302 None
-DEBUG 2021-01-08 14:25:55,081: Starting new HTTPS connection (1): doc-0c-1g-docs.googleusercontent.com:443
-DEBUG 2021-01-08 14:25:55,419: https://doc-0c-1g-docs.googleusercontent.com:443 "GET /docs/securesc/9fgc2hkv1gs6fb2di9qr5b9l8o3lb0hq/4ubumu5ef8rg7vfu6tlrddvg9590f1rp/1610108700000/03931303218117375328/03628244989593810638Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e=download HTTP/1.1" 302 0
-DEBUG 2021-01-08 14:25:55,597: https://docs.google.com:443 "GET /nonceSigner?nonce=j3j5hri8df5po&continue=https://doc-0c-1g-docs.googleusercontent.com/docs/securesc/9fgc2hkv1gs6fb2di9qr5b9l8o3lb0hq/4ubumu5ef8rg7vfu6tlrddvg9590f1rp/1610108700000/03931303218117375328/03628244989593810638Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e%3Ddownload&hash=76bomdsfifl1l7macl8j4rfbtg4m6oqd HTTP/1.1" 302 0
-DEBUG 2021-01-08 14:25:55,881: https://doc-0c-1g-docs.googleusercontent.com:443 "GET /docs/securesc/9fgc2hkv1gs6fb2di9qr5b9l8o3lb0hq/4ubumu5ef8rg7vfu6tlrddvg9590f1rp/1610108700000/03931303218117375328/03628244989593810638Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e=download&nonce=j3j5hri8df5po&user=03628244989593810638Z&hash=140e7al68fnh0n6sspng936krompdisr HTTP/1.1" 200 None
-INFO 2021-01-08 14:26:00,057: Successfully downloaded and extracted pretrained model into ./model.
-INFO 2021-01-08 14:26:02,754: Successfully imported module search_engine_1.
-DEBUG 2021-01-08 14:26:07,097: Building the index in search_engine_1 for benchmark data took 4.314815936999999 seconds.
-INFO 2021-01-08 14:26:07,097: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:26:07,097: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:26:07,798: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:26:07,804: search_engine_1 successfully returned 37 results for the query 'bioweapon'.
-DEBUG 2021-01-08 14:26:07,823: search_engine_1 successfully returned 1023 results for query number 1.
-DEBUG 2021-01-08 14:26:07,883: search_engine_1 successfully returned 3812 results for query number 2.
-DEBUG 2021-01-08 14:26:07,927: search_engine_1 successfully returned 2160 results for query number 3.
-DEBUG 2021-01-08 14:26:08,040: search_engine_1 successfully returned 803 results for query number 4.
-DEBUG 2021-01-08 14:26:08,062: search_engine_1 successfully returned 977 results for query number 5.
-DEBUG 2021-01-08 14:26:08,130: search_engine_1 successfully returned 4016 results for query number 6.
-DEBUG 2021-01-08 14:26:08,150: search_engine_1 successfully returned 312 results for query number 7.
-DEBUG 2021-01-08 14:26:08,176: search_engine_1 successfully returned 1814 results for query number 8.
-DEBUG 2021-01-08 14:26:08,221: search_engine_1 successfully returned 2770 results for query number 9.
-DEBUG 2021-01-08 14:26:08,260: search_engine_1 successfully returned 2101 results for query number 10.
-DEBUG 2021-01-08 14:26:08,318: search_engine_1 successfully returned 3852 results for query number 11.
-DEBUG 2021-01-08 14:26:08,395: search_engine_1 successfully returned 4083 results for query number 12.
-DEBUG 2021-01-08 14:26:08,461: search_engine_1 successfully returned 4088 results for query number 13.
-DEBUG 2021-01-08 14:26:08,502: search_engine_1 successfully returned 1897 results for query number 14.
-DEBUG 2021-01-08 14:26:08,515: search_engine_1 successfully returned 121 results for query number 15.
-DEBUG 2021-01-08 14:26:08,534: search_engine_1 successfully returned 809 results for query number 16.
-DEBUG 2021-01-08 14:26:08,586: search_engine_1 successfully returned 2835 results for query number 17.
-DEBUG 2021-01-08 14:26:08,605: search_engine_1 successfully returned 350 results for query number 18.
-DEBUG 2021-01-08 14:26:08,632: search_engine_1 successfully returned 1746 results for query number 19.
-DEBUG 2021-01-08 14:26:08,663: search_engine_1 successfully returned 1844 results for query number 20.
-DEBUG 2021-01-08 14:26:08,695: search_engine_1 successfully returned 1812 results for query number 21.
-DEBUG 2021-01-08 14:26:08,769: search_engine_1 successfully returned 4061 results for query number 22.
-DEBUG 2021-01-08 14:26:08,850: search_engine_1 successfully returned 3817 results for query number 23.
-DEBUG 2021-01-08 14:26:08,896: search_engine_1 successfully returned 3019 results for query number 24.
-DEBUG 2021-01-08 14:26:08,960: search_engine_1 successfully returned 3951 results for query number 25.
-DEBUG 2021-01-08 14:26:09,011: search_engine_1 successfully returned 2522 results for query number 26.
-DEBUG 2021-01-08 14:26:09,063: search_engine_1 successfully returned 2512 results for query number 27.
-DEBUG 2021-01-08 14:26:09,122: search_engine_1 successfully returned 3934 results for query number 28.
-DEBUG 2021-01-08 14:26:09,156: search_engine_1 successfully returned 1639 results for query number 29.
-DEBUG 2021-01-08 14:26:09,193: search_engine_1 successfully returned 2180 results for query number 30.
-DEBUG 2021-01-08 14:26:09,213: search_engine_1 successfully returned 566 results for query number 31.
-DEBUG 2021-01-08 14:26:09,292: search_engine_1 successfully returned 3838 results for query number 32.
-DEBUG 2021-01-08 14:26:09,380: search_engine_1 successfully returned 4132 results for query number 33.
-DEBUG 2021-01-08 14:26:09,427: search_engine_1 successfully returned 2244 results for query number 34.
-DEBUG 2021-01-08 14:26:09,457: search_engine_1 successfully returned 1758 results for query number 35.
-DEBUG 2021-01-08 14:26:18,025: search_engine_1 results have MAP value of 0.6969265128522824.
-DEBUG 2021-01-08 14:26:18,059: search_engine_1 results produced average precision of 0.6055125047256755.
-DEBUG 2021-01-08 14:26:18,059: search_engine_1 results produced average precision@5 of 0.6171428571428572.
-DEBUG 2021-01-08 14:26:18,059: search_engine_1 results produced average precision@10 of 0.68.
-DEBUG 2021-01-08 14:26:18,059: search_engine_1 results produced average precision@50 of 0.7062857142857143.
-DEBUG 2021-01-08 14:26:18,059: search_engine_1 results produced average recall of 0.9816636304381081.
-INFO 2021-01-08 14:26:18,061: Successfully imported module search_engine_2.
-INFO 2021-01-08 14:26:18,061: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:26:18,061: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:26:18,732: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:26:22,458: Building the index in search_engine_2 for benchmark data took 3.6236770179999986 seconds.
-INFO 2021-01-08 14:26:22,459: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:26:22,459: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:26:23,275: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:26:25,593: search_engine_2 successfully returned 794 results for the query 'bioweapon'.
-DEBUG 2021-01-08 14:26:26,111: search_engine_2 successfully returned 608 results for query number 1.
-DEBUG 2021-01-08 14:26:27,055: search_engine_2 successfully returned 2528 results for query number 2.
-DEBUG 2021-01-08 14:26:27,942: search_engine_2 successfully returned 2834 results for query number 3.
-DEBUG 2021-01-08 14:26:28,520: search_engine_2 successfully returned 1749 results for query number 4.
-DEBUG 2021-01-08 14:26:29,178: search_engine_2 successfully returned 727 results for query number 5.
-DEBUG 2021-01-08 14:26:29,653: search_engine_2 successfully returned 2832 results for query number 6.
-DEBUG 2021-01-08 14:26:29,931: search_engine_2 successfully returned 1170 results for query number 7.
-DEBUG 2021-01-08 14:26:30,497: search_engine_2 successfully returned 1140 results for query number 8.
-DEBUG 2021-01-08 14:26:30,932: search_engine_2 successfully returned 2110 results for query number 9.
-DEBUG 2021-01-08 14:26:31,255: search_engine_2 successfully returned 1854 results for query number 10.
-DEBUG 2021-01-08 14:26:31,657: search_engine_2 successfully returned 2324 results for query number 11.
-DEBUG 2021-01-08 14:26:32,365: search_engine_2 successfully returned 3088 results for query number 12.
-DEBUG 2021-01-08 14:26:32,887: search_engine_2 successfully returned 3080 results for query number 13.
-DEBUG 2021-01-08 14:26:33,443: search_engine_2 successfully returned 1724 results for query number 14.
-DEBUG 2021-01-08 14:26:33,706: search_engine_2 successfully returned 2017 results for query number 15.
-DEBUG 2021-01-08 14:26:34,168: search_engine_2 successfully returned 2103 results for query number 16.
-DEBUG 2021-01-08 14:26:34,476: search_engine_2 successfully returned 1978 results for query number 17.
-DEBUG 2021-01-08 14:26:35,157: search_engine_2 successfully returned 1571 results for query number 18.
-DEBUG 2021-01-08 14:26:36,230: search_engine_2 successfully returned 3707 results for query number 19.
-DEBUG 2021-01-08 14:26:37,273: search_engine_2 successfully returned 3146 results for query number 20.
-DEBUG 2021-01-08 14:26:38,401: search_engine_2 successfully returned 3367 results for query number 21.
-DEBUG 2021-01-08 14:26:38,822: search_engine_2 successfully returned 3094 results for query number 22.
-DEBUG 2021-01-08 14:26:39,711: search_engine_2 successfully returned 2555 results for query number 23.
-DEBUG 2021-01-08 14:26:40,680: search_engine_2 successfully returned 3323 results for query number 24.
-DEBUG 2021-01-08 14:26:41,469: search_engine_2 successfully returned 2502 results for query number 25.
-DEBUG 2021-01-08 14:26:42,493: search_engine_2 successfully returned 1571 results for query number 26.
-DEBUG 2021-01-08 14:26:43,451: search_engine_2 successfully returned 1460 results for query number 27.
-DEBUG 2021-01-08 14:26:44,304: search_engine_2 successfully returned 2937 results for query number 28.
-DEBUG 2021-01-08 14:26:45,136: search_engine_2 successfully returned 1829 results for query number 29.
-DEBUG 2021-01-08 14:26:45,547: search_engine_2 successfully returned 1662 results for query number 30.
-DEBUG 2021-01-08 14:26:46,010: search_engine_2 successfully returned 367 results for query number 31.
-DEBUG 2021-01-08 14:26:46,635: search_engine_2 successfully returned 2206 results for query number 32.
-DEBUG 2021-01-08 14:26:47,212: search_engine_2 successfully returned 2444 results for query number 33.
-DEBUG 2021-01-08 14:26:47,540: search_engine_2 successfully returned 1626 results for query number 34.
-DEBUG 2021-01-08 14:26:48,207: search_engine_2 successfully returned 1574 results for query number 35.
-DEBUG 2021-01-08 14:26:56,150: search_engine_2 results have MAP value of 0.7453351474820734.
-DEBUG 2021-01-08 14:26:56,183: search_engine_2 results produced average precision of 0.6200880365510808.
-DEBUG 2021-01-08 14:26:56,183: search_engine_2 results produced average precision@5 of 0.8971428571428571.
-DEBUG 2021-01-08 14:26:56,183: search_engine_2 results produced average precision@10 of 0.8371428571428572.
-DEBUG 2021-01-08 14:26:56,184: search_engine_2 results produced average precision@50 of 0.7445714285714287.
-DEBUG 2021-01-08 14:26:56,184: search_engine_2 results produced average recall of 0.9233825963257262.
-INFO 2021-01-08 14:26:56,186: Successfully imported module search_engine_3.
-INFO 2021-01-08 14:26:56,186: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:26:56,186: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:26:56,990: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:00,707: Building the index in search_engine_3 for benchmark data took 3.5890966389999903 seconds.
-INFO 2021-01-08 14:27:00,708: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:00,708: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:27:01,291: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:01,296: search_engine_3 successfully returned 37 results for the query 'bioweapon'.
-DEBUG 2021-01-08 14:27:01,322: search_engine_3 successfully returned 1023 results for query number 1.
-DEBUG 2021-01-08 14:27:01,397: search_engine_3 successfully returned 3812 results for query number 2.
-DEBUG 2021-01-08 14:27:01,459: search_engine_3 successfully returned 2160 results for query number 3.
-DEBUG 2021-01-08 14:27:01,488: search_engine_3 successfully returned 803 results for query number 4.
-DEBUG 2021-01-08 14:27:01,518: search_engine_3 successfully returned 977 results for query number 5.
-DEBUG 2021-01-08 14:27:01,612: search_engine_3 successfully returned 4016 results for query number 6.
-DEBUG 2021-01-08 14:27:01,634: search_engine_3 successfully returned 312 results for query number 7.
-DEBUG 2021-01-08 14:27:01,676: search_engine_3 successfully returned 1814 results for query number 8.
-DEBUG 2021-01-08 14:27:01,747: search_engine_3 successfully returned 2770 results for query number 9.
-DEBUG 2021-01-08 14:27:01,799: search_engine_3 successfully returned 2101 results for query number 10.
-DEBUG 2021-01-08 14:27:01,890: search_engine_3 successfully returned 3852 results for query number 11.
-DEBUG 2021-01-08 14:27:02,011: search_engine_3 successfully returned 4083 results for query number 12.
-DEBUG 2021-01-08 14:27:02,102: search_engine_3 successfully returned 4088 results for query number 13.
-DEBUG 2021-01-08 14:27:02,149: search_engine_3 successfully returned 1897 results for query number 14.
-DEBUG 2021-01-08 14:27:02,162: search_engine_3 successfully returned 121 results for query number 15.
-DEBUG 2021-01-08 14:27:02,188: search_engine_3 successfully returned 809 results for query number 16.
-DEBUG 2021-01-08 14:27:02,277: search_engine_3 successfully returned 2835 results for query number 17.
-DEBUG 2021-01-08 14:27:02,299: search_engine_3 successfully returned 350 results for query number 18.
-DEBUG 2021-01-08 14:27:02,339: search_engine_3 successfully returned 1746 results for query number 19.
-DEBUG 2021-01-08 14:27:02,383: search_engine_3 successfully returned 1844 results for query number 20.
-DEBUG 2021-01-08 14:27:02,436: search_engine_3 successfully returned 1812 results for query number 21.
-DEBUG 2021-01-08 14:27:02,529: search_engine_3 successfully returned 4061 results for query number 22.
-DEBUG 2021-01-08 14:27:02,624: search_engine_3 successfully returned 3817 results for query number 23.
-DEBUG 2021-01-08 14:27:02,702: search_engine_3 successfully returned 3019 results for query number 24.
-DEBUG 2021-01-08 14:27:02,793: search_engine_3 successfully returned 3951 results for query number 25.
-DEBUG 2021-01-08 14:27:02,852: search_engine_3 successfully returned 2522 results for query number 26.
-DEBUG 2021-01-08 14:27:02,918: search_engine_3 successfully returned 2512 results for query number 27.
-DEBUG 2021-01-08 14:27:03,014: search_engine_3 successfully returned 3934 results for query number 28.
-DEBUG 2021-01-08 14:27:03,059: search_engine_3 successfully returned 1639 results for query number 29.
-DEBUG 2021-01-08 14:27:03,110: search_engine_3 successfully returned 2180 results for query number 30.
-DEBUG 2021-01-08 14:27:03,143: search_engine_3 successfully returned 566 results for query number 31.
-DEBUG 2021-01-08 14:27:03,238: search_engine_3 successfully returned 3838 results for query number 32.
-DEBUG 2021-01-08 14:27:03,334: search_engine_3 successfully returned 4132 results for query number 33.
-DEBUG 2021-01-08 14:27:03,384: search_engine_3 successfully returned 2244 results for query number 34.
-DEBUG 2021-01-08 14:27:03,417: search_engine_3 successfully returned 1758 results for query number 35.
-DEBUG 2021-01-08 14:27:11,311: search_engine_3 results have MAP value of 0.7357368095893709.
-DEBUG 2021-01-08 14:27:11,344: search_engine_3 results produced average precision of 0.6055125047256755.
-DEBUG 2021-01-08 14:27:11,345: search_engine_3 results produced average precision@5 of 0.8114285714285714.
-DEBUG 2021-01-08 14:27:11,345: search_engine_3 results produced average precision@10 of 0.8057142857142857.
-DEBUG 2021-01-08 14:27:11,345: search_engine_3 results produced average precision@50 of 0.7525714285714286.
-DEBUG 2021-01-08 14:27:11,345: search_engine_3 results produced average recall of 0.9816636304381081.
-INFO 2021-01-08 14:27:11,347: Successfully imported module search_engine_4.
-INFO 2021-01-08 14:27:11,347: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:11,347: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:27:12,094: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:15,842: Building the index in search_engine_4 for benchmark data took 3.6167216849999875 seconds.
-INFO 2021-01-08 14:27:15,842: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:15,843: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:27:16,419: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:16,424: search_engine_4 successfully returned 37 results for the query 'bioweapon'.
-DEBUG 2021-01-08 14:27:16,452: search_engine_4 successfully returned 1023 results for query number 1.
-DEBUG 2021-01-08 14:27:16,538: search_engine_4 successfully returned 3818 results for query number 2.
-DEBUG 2021-01-08 14:27:16,596: search_engine_4 successfully returned 2165 results for query number 3.
-DEBUG 2021-01-08 14:27:16,624: search_engine_4 successfully returned 805 results for query number 4.
-DEBUG 2021-01-08 14:27:16,655: search_engine_4 successfully returned 977 results for query number 5.
-DEBUG 2021-01-08 14:27:16,758: search_engine_4 successfully returned 4016 results for query number 6.
-DEBUG 2021-01-08 14:27:16,785: search_engine_4 successfully returned 312 results for query number 7.
-DEBUG 2021-01-08 14:27:16,822: search_engine_4 successfully returned 1814 results for query number 8.
-DEBUG 2021-01-08 14:27:16,889: search_engine_4 successfully returned 2770 results for query number 9.
-DEBUG 2021-01-08 14:27:16,945: search_engine_4 successfully returned 2101 results for query number 10.
-DEBUG 2021-01-08 14:27:17,030: search_engine_4 successfully returned 3852 results for query number 11.
-DEBUG 2021-01-08 14:27:17,136: search_engine_4 successfully returned 4083 results for query number 12.
-DEBUG 2021-01-08 14:27:17,235: search_engine_4 successfully returned 4096 results for query number 13.
-DEBUG 2021-01-08 14:27:17,289: search_engine_4 successfully returned 1897 results for query number 14.
-DEBUG 2021-01-08 14:27:17,303: search_engine_4 successfully returned 122 results for query number 15.
-DEBUG 2021-01-08 14:27:17,326: search_engine_4 successfully returned 809 results for query number 16.
-DEBUG 2021-01-08 14:27:17,403: search_engine_4 successfully returned 2835 results for query number 17.
-DEBUG 2021-01-08 14:27:17,429: search_engine_4 successfully returned 353 results for query number 18.
-DEBUG 2021-01-08 14:27:17,473: search_engine_4 successfully returned 1746 results for query number 19.
-DEBUG 2021-01-08 14:27:17,519: search_engine_4 successfully returned 1844 results for query number 20.
-DEBUG 2021-01-08 14:27:17,563: search_engine_4 successfully returned 1812 results for query number 21.
-DEBUG 2021-01-08 14:27:17,665: search_engine_4 successfully returned 4061 results for query number 22.
-DEBUG 2021-01-08 14:27:17,765: search_engine_4 successfully returned 3824 results for query number 23.
-DEBUG 2021-01-08 14:27:17,833: search_engine_4 successfully returned 3019 results for query number 24.
-DEBUG 2021-01-08 14:27:17,927: search_engine_4 successfully returned 3951 results for query number 25.
-DEBUG 2021-01-08 14:27:17,992: search_engine_4 successfully returned 2530 results for query number 26.
-DEBUG 2021-01-08 14:27:18,053: search_engine_4 successfully returned 2514 results for query number 27.
-DEBUG 2021-01-08 14:27:18,152: search_engine_4 successfully returned 3934 results for query number 28.
-DEBUG 2021-01-08 14:27:18,202: search_engine_4 successfully returned 1639 results for query number 29.
-DEBUG 2021-01-08 14:27:18,260: search_engine_4 successfully returned 2180 results for query number 30.
-DEBUG 2021-01-08 14:27:18,285: search_engine_4 successfully returned 566 results for query number 31.
-DEBUG 2021-01-08 14:27:18,380: search_engine_4 successfully returned 3838 results for query number 32.
-DEBUG 2021-01-08 14:27:18,507: search_engine_4 successfully returned 4154 results for query number 33.
-DEBUG 2021-01-08 14:27:18,571: search_engine_4 successfully returned 2244 results for query number 34.
-DEBUG 2021-01-08 14:27:18,622: search_engine_4 successfully returned 1758 results for query number 35.
-DEBUG 2021-01-08 14:27:27,002: search_engine_4 results have MAP value of 0.7443627147416214.
-DEBUG 2021-01-08 14:27:27,036: search_engine_4 results produced average precision of 0.6053742941214685.
-DEBUG 2021-01-08 14:27:27,036: search_engine_4 results produced average precision@5 of 0.8057142857142858.
-DEBUG 2021-01-08 14:27:27,036: search_engine_4 results produced average precision@10 of 0.8142857142857143.
-DEBUG 2021-01-08 14:27:27,036: search_engine_4 results produced average precision@50 of 0.7645714285714286.
-DEBUG 2021-01-08 14:27:27,036: search_engine_4 results produced average recall of 0.9819566707311485.
-INFO 2021-01-08 14:27:27,038: Successfully imported module search_engine_5.
-DEBUG 2021-01-08 14:27:30,120: Building the index in search_engine_5 for benchmark data took 2.950848341000011 seconds.
-INFO 2021-01-08 14:27:30,121: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:30,121: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:27:30,854: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:30,859: search_engine_5 successfully returned 37 results for the query 'bioweapon'.
-DEBUG 2021-01-08 14:27:32,256: search_engine_5 successfully returned 1023 results for query number 1.
-DEBUG 2021-01-08 14:27:32,336: search_engine_5 successfully returned 3818 results for query number 2.
-DEBUG 2021-01-08 14:27:32,923: search_engine_5 successfully returned 2165 results for query number 3.
-DEBUG 2021-01-08 14:27:32,950: search_engine_5 successfully returned 805 results for query number 4.
-DEBUG 2021-01-08 14:27:32,974: search_engine_5 successfully returned 977 results for query number 5.
-DEBUG 2021-01-08 14:27:33,065: search_engine_5 successfully returned 4016 results for query number 6.
-DEBUG 2021-01-08 14:27:33,088: search_engine_5 successfully returned 312 results for query number 7.
-DEBUG 2021-01-08 14:27:33,658: search_engine_5 successfully returned 1814 results for query number 8.
-DEBUG 2021-01-08 14:27:33,720: search_engine_5 successfully returned 2770 results for query number 9.
-DEBUG 2021-01-08 14:27:34,300: search_engine_5 successfully returned 2101 results for query number 10.
-DEBUG 2021-01-08 14:27:34,386: search_engine_5 successfully returned 3852 results for query number 11.
-DEBUG 2021-01-08 14:27:34,494: search_engine_5 successfully returned 4083 results for query number 12.
-DEBUG 2021-01-08 14:27:34,669: search_engine_5 successfully returned 4096 results for query number 13.
-DEBUG 2021-01-08 14:27:35,239: search_engine_5 successfully returned 1897 results for query number 14.
-DEBUG 2021-01-08 14:27:35,254: search_engine_5 successfully returned 122 results for query number 15.
-DEBUG 2021-01-08 14:27:35,277: search_engine_5 successfully returned 809 results for query number 16.
-DEBUG 2021-01-08 14:27:35,346: search_engine_5 successfully returned 2835 results for query number 17.
-DEBUG 2021-01-08 14:27:35,371: search_engine_5 successfully returned 353 results for query number 18.
-DEBUG 2021-01-08 14:27:35,410: search_engine_5 successfully returned 1746 results for query number 19.
-DEBUG 2021-01-08 14:27:35,455: search_engine_5 successfully returned 1844 results for query number 20.
-DEBUG 2021-01-08 14:27:36,051: search_engine_5 successfully returned 1812 results for query number 21.
-DEBUG 2021-01-08 14:27:36,142: search_engine_5 successfully returned 4061 results for query number 22.
-DEBUG 2021-01-08 14:27:36,300: search_engine_5 successfully returned 3824 results for query number 23.
-DEBUG 2021-01-08 14:27:36,913: search_engine_5 successfully returned 3019 results for query number 24.
-DEBUG 2021-01-08 14:27:37,006: search_engine_5 successfully returned 3951 results for query number 25.
-DEBUG 2021-01-08 14:27:37,065: search_engine_5 successfully returned 2530 results for query number 26.
-DEBUG 2021-01-08 14:27:37,139: search_engine_5 successfully returned 2516 results for query number 27.
-DEBUG 2021-01-08 14:27:37,435: search_engine_5 successfully returned 3944 results for query number 28.
-DEBUG 2021-01-08 14:27:38,183: search_engine_5 successfully returned 1655 results for query number 29.
-DEBUG 2021-01-08 14:27:38,234: search_engine_5 successfully returned 2180 results for query number 30.
-DEBUG 2021-01-08 14:27:39,641: search_engine_5 successfully returned 566 results for query number 31.
-DEBUG 2021-01-08 14:27:40,094: search_engine_5 successfully returned 3838 results for query number 32.
-DEBUG 2021-01-08 14:27:40,520: search_engine_5 successfully returned 4154 results for query number 33.
-DEBUG 2021-01-08 14:27:40,593: search_engine_5 successfully returned 2244 results for query number 34.
-DEBUG 2021-01-08 14:27:40,636: search_engine_5 successfully returned 1758 results for query number 35.
-DEBUG 2021-01-08 14:27:49,106: search_engine_5 results have MAP value of 0.611615032305382.
-DEBUG 2021-01-08 14:27:49,141: search_engine_5 results produced average precision of 0.6053742941214685.
-DEBUG 2021-01-08 14:27:49,141: search_engine_5 results produced average precision@5 of 0.6457142857142858.
-DEBUG 2021-01-08 14:27:49,141: search_engine_5 results produced average precision@10 of 0.5914285714285714.
-DEBUG 2021-01-08 14:27:49,141: search_engine_5 results produced average precision@50 of 0.5948571428571429.
-DEBUG 2021-01-08 14:27:49,142: search_engine_5 results produced average recall of 0.9819566707311485.
-INFO 2021-01-08 14:27:49,144: Successfully imported module search_engine_best.
-INFO 2021-01-08 14:27:49,144: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:49,144: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:27:49,880: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:53,598: Building the index in search_engine_best for benchmark data took 3.627897439999998 seconds.
-INFO 2021-01-08 14:27:53,598: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:53,598: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 14:27:54,126: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 14:27:54,193: search_engine_best successfully returned 794 results for the query 'bioweapon'.
-DEBUG 2021-01-08 14:27:55,979: search_engine_best successfully returned 608 results for query number 1.
-DEBUG 2021-01-08 14:27:56,944: search_engine_best successfully returned 2528 results for query number 2.
-DEBUG 2021-01-08 14:27:58,488: search_engine_best successfully returned 2887 results for query number 3.
-DEBUG 2021-01-08 14:27:59,204: search_engine_best successfully returned 1749 results for query number 4.
-DEBUG 2021-01-08 14:27:59,764: search_engine_best successfully returned 727 results for query number 5.
-DEBUG 2021-01-08 14:28:00,244: search_engine_best successfully returned 2832 results for query number 6.
-DEBUG 2021-01-08 14:28:00,526: search_engine_best successfully returned 1170 results for query number 7.
-DEBUG 2021-01-08 14:28:01,434: search_engine_best successfully returned 1766 results for query number 8.
-DEBUG 2021-01-08 14:28:01,849: search_engine_best successfully returned 2110 results for query number 9.
-DEBUG 2021-01-08 14:28:02,618: search_engine_best successfully returned 1895 results for query number 10.
-DEBUG 2021-01-08 14:28:03,025: search_engine_best successfully returned 2324 results for query number 11.
-DEBUG 2021-01-08 14:28:03,595: search_engine_best successfully returned 3088 results for query number 12.
-DEBUG 2021-01-08 14:28:04,034: search_engine_best successfully returned 3080 results for query number 13.
-DEBUG 2021-01-08 14:28:04,921: search_engine_best successfully returned 2366 results for query number 14.
-DEBUG 2021-01-08 14:28:05,126: search_engine_best successfully returned 2017 results for query number 15.
-DEBUG 2021-01-08 14:28:05,518: search_engine_best successfully returned 2103 results for query number 16.
-DEBUG 2021-01-08 14:28:05,826: search_engine_best successfully returned 1978 results for query number 17.
-DEBUG 2021-01-08 14:28:06,501: search_engine_best successfully returned 1571 results for query number 18.
-DEBUG 2021-01-08 14:28:07,362: search_engine_best successfully returned 3707 results for query number 19.
-DEBUG 2021-01-08 14:28:08,177: search_engine_best successfully returned 3146 results for query number 20.
-DEBUG 2021-01-08 14:28:09,428: search_engine_best successfully returned 2489 results for query number 21.
-DEBUG 2021-01-08 14:28:09,787: search_engine_best successfully returned 3094 results for query number 22.
-DEBUG 2021-01-08 14:28:10,545: search_engine_best successfully returned 2555 results for query number 23.
-DEBUG 2021-01-08 14:28:11,970: search_engine_best successfully returned 3357 results for query number 24.
-DEBUG 2021-01-08 14:28:12,786: search_engine_best successfully returned 2502 results for query number 25.
-DEBUG 2021-01-08 14:28:13,952: search_engine_best successfully returned 1571 results for query number 26.
-DEBUG 2021-01-08 14:28:14,751: search_engine_best successfully returned 1475 results for query number 27.
-DEBUG 2021-01-08 14:28:15,946: search_engine_best successfully returned 2962 results for query number 28.
-DEBUG 2021-01-08 14:28:17,829: search_engine_best successfully returned 1218 results for query number 29.
-DEBUG 2021-01-08 14:28:18,246: search_engine_best successfully returned 1662 results for query number 30.
-DEBUG 2021-01-08 14:28:20,175: search_engine_best successfully returned 367 results for query number 31.
-DEBUG 2021-01-08 14:28:21,134: search_engine_best successfully returned 2206 results for query number 32.
-DEBUG 2021-01-08 14:28:21,983: search_engine_best successfully returned 2444 results for query number 33.
-DEBUG 2021-01-08 14:28:22,317: search_engine_best successfully returned 1626 results for query number 34.
-DEBUG 2021-01-08 14:28:23,000: search_engine_best successfully returned 1574 results for query number 35.
-DEBUG 2021-01-08 14:28:30,821: search_engine_best results have MAP value of 0.7542184096693538.
-DEBUG 2021-01-08 14:28:30,854: search_engine_best results produced average precision of 0.622292880327469.
-DEBUG 2021-01-08 14:28:30,854: search_engine_best results produced average precision@5 of 0.8857142857142857.
-DEBUG 2021-01-08 14:28:30,854: search_engine_best results produced average precision@10 of 0.8342857142857144.
-DEBUG 2021-01-08 14:28:30,855: search_engine_best results produced average precision@50 of 0.7628571428571429.
-DEBUG 2021-01-08 14:28:30,855: search_engine_best results produced average recall of 0.913836242732002.
-ERROR 2021-01-08 14:28:30,855: idx_bench.pkl does not exist.
-DEBUG 2021-01-08 14:28:31,795: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,813: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,825: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,839: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,852: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,863: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,879: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,889: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,905: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,918: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,931: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,944: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,960: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,972: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,986: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:31,997: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,008: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,024: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,041: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,057: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,073: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,089: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,102: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,115: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,127: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,137: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,153: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,171: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,190: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,204: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,219: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,233: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,244: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,256: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,272: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,285: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,296: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,315: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,330: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,347: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,361: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,371: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,386: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,400: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,412: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,423: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,440: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,454: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,469: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,482: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,499: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,513: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,525: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,536: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,552: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,566: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,583: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,601: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,616: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,627: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,641: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,657: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,677: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,690: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,702: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,719: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,736: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,751: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,764: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,782: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,795: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,817: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,834: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,850: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,872: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,885: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,900: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,916: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,933: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,950: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,966: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,982: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:32,994: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,011: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,023: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,040: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,055: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,066: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,085: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,096: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,110: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,123: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,137: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,150: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,159: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,172: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,189: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,203: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,212: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,227: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,238: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,250: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,263: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,277: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,289: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,298: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,312: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,327: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,340: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,352: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,366: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,381: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,391: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,401: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,418: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,429: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,442: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,454: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,470: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,481: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,494: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,509: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,519: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,530: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,546: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,562: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,579: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,590: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,602: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,616: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,629: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,642: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,653: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,673: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,687: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,703: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,720: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,733: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,747: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,758: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,769: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,784: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,801: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,818: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,831: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,846: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,857: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,873: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,885: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,902: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,915: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,932: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,947: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,961: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,975: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:33,992: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,007: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,022: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,043: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,060: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,075: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,093: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,110: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,126: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,143: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,162: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,177: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,189: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,208: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,224: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,236: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,253: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,275: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,291: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,310: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,325: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,339: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,354: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,368: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,380: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,395: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,409: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,421: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,435: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,477: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,501: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,519: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,533: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,546: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,562: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,577: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,592: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,610: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,627: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,643: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,658: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,671: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,685: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,697: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,717: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,732: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,753: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,771: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,785: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,805: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,823: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,847: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,863: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,877: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,896: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:34,913: Starting new HTTP connection (1): localhost:54101
-DEBUG 2021-01-08 14:28:35,214: http://localhost:54101 "POST / HTTP/1.1" 200 43171
-DEBUG 2021-01-08 14:28:35,216: Total runtime was: 0:02:41.547464
+ERROR 2021-01-08 16:35:27,918: report_part_c.docx does not exist.
+INFO 2021-01-08 16:35:27,943: Successfully loaded benchmark labels data.
+INFO 2021-01-08 16:35:27,946: Successfully loaded queries data.
+DEBUG 2021-01-08 16:35:28,281: Starting new HTTPS connection (1): docs.google.com:443
+DEBUG 2021-01-08 16:35:28,839: https://docs.google.com:443 "GET /uc?export=download&id=1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb HTTP/1.1" 200 None
+DEBUG 2021-01-08 16:35:28,843: Starting new HTTPS connection (2): docs.google.com:443
+DEBUG 2021-01-08 16:35:29,258: https://docs.google.com:443 "GET /uc?export=download&id=1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb&confirm=f2hJ HTTP/1.1" 302 None
+DEBUG 2021-01-08 16:35:29,277: Starting new HTTPS connection (1): doc-0k-54-docs.googleusercontent.com:443
+DEBUG 2021-01-08 16:35:29,631: https://doc-0k-54-docs.googleusercontent.com:443 "GET /docs/securesc/k4feqt482r2jnuk70u19t7co52ierr90/eacg7qcldnokd7q11fphvv82he21g88g/1610116500000/03931303218117375328/16695013895798901777Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e=download HTTP/1.1" 302 0
+DEBUG 2021-01-08 16:35:29,817: https://docs.google.com:443 "GET /nonceSigner?nonce=e3h5bvfkoq8us&continue=https://doc-0k-54-docs.googleusercontent.com/docs/securesc/k4feqt482r2jnuk70u19t7co52ierr90/eacg7qcldnokd7q11fphvv82he21g88g/1610116500000/03931303218117375328/16695013895798901777Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e%3Ddownload&hash=bj4vd31vuc6mroi3h1k43jcdd3qc5nln HTTP/1.1" 302 0
+DEBUG 2021-01-08 16:35:30,147: https://doc-0k-54-docs.googleusercontent.com:443 "GET /docs/securesc/k4feqt482r2jnuk70u19t7co52ierr90/eacg7qcldnokd7q11fphvv82he21g88g/1610116500000/03931303218117375328/16695013895798901777Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e=download&nonce=e3h5bvfkoq8us&user=16695013895798901777Z&hash=fioe157d6h7jc8sb85p20331f17hh813 HTTP/1.1" 200 None
+INFO 2021-01-08 16:35:41,977: Successfully downloaded and extracted pretrained model into ./model.
+INFO 2021-01-08 16:35:45,622: Successfully imported module search_engine_best.
+INFO 2021-01-08 16:35:45,622: loading projection weights from ./model/word2vec_model.bin
+DEBUG 2021-01-08 16:35:45,622: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-08 16:35:46,551: loaded (65955, 300) matrix from ./model/word2vec_model.bin
+DEBUG 2021-01-08 16:35:51,944: Building the index in search_engine_best for benchmark data took 5.357621889999997 seconds.
+DEBUG 2021-01-08 16:35:54,993: search_engine_best successfully returned 794 results for the query 'bioweapon'.
+DEBUG 2021-01-08 16:35:56,743: search_engine_best successfully returned 608 results for query number 1.
+DEBUG 2021-01-08 16:35:57,605: search_engine_best successfully returned 2528 results for query number 2.
+DEBUG 2021-01-08 16:35:58,922: search_engine_best successfully returned 2887 results for query number 3.
+DEBUG 2021-01-08 16:35:59,439: search_engine_best successfully returned 1749 results for query number 4.
+DEBUG 2021-01-08 16:36:00,049: search_engine_best successfully returned 727 results for query number 5.
+DEBUG 2021-01-08 16:36:00,549: search_engine_best successfully returned 2832 results for query number 6.
+DEBUG 2021-01-08 16:36:00,843: search_engine_best successfully returned 1170 results for query number 7.
+DEBUG 2021-01-08 16:36:01,865: search_engine_best successfully returned 1766 results for query number 8.
+DEBUG 2021-01-08 16:36:02,326: search_engine_best successfully returned 2110 results for query number 9.
+DEBUG 2021-01-08 16:36:03,358: search_engine_best successfully returned 1895 results for query number 10.
+DEBUG 2021-01-08 16:36:03,809: search_engine_best successfully returned 2324 results for query number 11.
+DEBUG 2021-01-08 16:36:04,436: search_engine_best successfully returned 3088 results for query number 12.
+DEBUG 2021-01-08 16:36:04,896: search_engine_best successfully returned 3080 results for query number 13.
+DEBUG 2021-01-08 16:36:06,016: search_engine_best successfully returned 2366 results for query number 14.
+DEBUG 2021-01-08 16:36:06,310: search_engine_best successfully returned 2017 results for query number 15.
+DEBUG 2021-01-08 16:36:06,838: search_engine_best successfully returned 2103 results for query number 16.
+DEBUG 2021-01-08 16:36:07,275: search_engine_best successfully returned 1978 results for query number 17.
+DEBUG 2021-01-08 16:36:08,216: search_engine_best successfully returned 1571 results for query number 18.
+DEBUG 2021-01-08 16:36:09,428: search_engine_best successfully returned 3707 results for query number 19.
+DEBUG 2021-01-08 16:36:10,765: search_engine_best successfully returned 3146 results for query number 20.
+DEBUG 2021-01-08 16:36:12,856: search_engine_best successfully returned 2489 results for query number 21.
+DEBUG 2021-01-08 16:36:13,319: search_engine_best successfully returned 3094 results for query number 22.
+DEBUG 2021-01-08 16:36:14,362: search_engine_best successfully returned 2555 results for query number 23.
+DEBUG 2021-01-08 16:36:16,020: search_engine_best successfully returned 3357 results for query number 24.
+DEBUG 2021-01-08 16:36:17,057: search_engine_best successfully returned 2502 results for query number 25.
+DEBUG 2021-01-08 16:36:18,357: search_engine_best successfully returned 1571 results for query number 26.
+DEBUG 2021-01-08 16:36:19,335: search_engine_best successfully returned 1475 results for query number 27.
+DEBUG 2021-01-08 16:36:20,598: search_engine_best successfully returned 2962 results for query number 28.
+DEBUG 2021-01-08 16:36:22,309: search_engine_best successfully returned 1218 results for query number 29.
+DEBUG 2021-01-08 16:36:22,765: search_engine_best successfully returned 1662 results for query number 30.
+DEBUG 2021-01-08 16:36:24,775: search_engine_best successfully returned 367 results for query number 31.
+DEBUG 2021-01-08 16:36:25,824: search_engine_best successfully returned 2206 results for query number 32.
+DEBUG 2021-01-08 16:36:26,788: search_engine_best successfully returned 2444 results for query number 33.
+DEBUG 2021-01-08 16:36:27,148: search_engine_best successfully returned 1626 results for query number 34.
+DEBUG 2021-01-08 16:36:27,881: search_engine_best successfully returned 1574 results for query number 35.
+DEBUG 2021-01-08 16:36:36,239: search_engine_best results have MAP value of 0.7535515611859527.
+DEBUG 2021-01-08 16:36:36,286: search_engine_best results produced average precision of 0.622292880327469.
+DEBUG 2021-01-08 16:36:36,287: search_engine_best results produced average precision@5 of 0.8857142857142857.
+DEBUG 2021-01-08 16:36:36,287: search_engine_best results produced average precision@10 of 0.84.
+DEBUG 2021-01-08 16:36:36,287: search_engine_best results produced average precision@50 of 0.7617142857142857.
+DEBUG 2021-01-08 16:36:36,287: search_engine_best results produced average recall of 0.913836242732002.
+ERROR 2021-01-08 16:36:36,287: idx_bench.pkl does not exist.
+DEBUG 2021-01-08 16:36:36,287: Total runtime was: 0:01:08.369252

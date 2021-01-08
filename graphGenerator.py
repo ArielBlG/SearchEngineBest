@@ -164,6 +164,30 @@ if __name__ == '__main__':
         recall = [all_results[(teams[0], q_id)][0][4], all_results[(teams[1], q_id)][0][4], all_results[(teams[2], q_id)][0][4],
                   all_results[(teams[3], q_id)][0][4], all_results[(teams[4], q_id)][0][4], all_results[(teams[5], q_id)][0][4]]
 
+        dict_to_csv = {}
+        print(f'Query id:{q_id}')
+        print("precision")
+        print(prec)
+        dict_to_csv["prec"]= prec
+        print("p5")
+        print(p5)
+        dict_to_csv["p5"]= p5
+        print("p10")
+        print(p10)
+        dict_to_csv["p10"]= p10
+        print("p50")
+        print(p50)
+        dict_to_csv["p50"]= p50
+        print("recall")
+        print(recall)
+        dict_to_csv["recall"]= recall
+
+        df_to_csv = pd.DataFrame(dict_to_csv)
+        if not os.path.exists("metrics_output"):
+            os.mkdir("metrics_output")
+
+        df_to_csv.to_csv(f"./metrics_output/{q_id}.csv")
+
         # Make traces for graph TODO: Change color pallete with the site https://www.coolors.co/generate
         trace1 = go.Bar(x=teams, y=prec, xaxis='x2', yaxis='y2',
                         marker=dict(color='#84828F'),
