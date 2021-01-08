@@ -113,6 +113,10 @@ class Searcher:
         else:
             self.tf_idf_flag = False
         self._ranker = Ranker(w2v_flag=self.w2v_flag, tf_idf_flag=self.tf_idf_flag)
+        if kwargs.get("spell_checker"):
+            self.spell_checker_flag = kwargs.get("spell_checker")
+        else:
+            self.spell_checker_flag = False
 
     def search_2(self, query):
         """
@@ -135,7 +139,7 @@ class Searcher:
         vector_query = self.get_vector_query(query_as_list)
         w2v_vector = self.get_w2v_vector_query(query_as_list)
         ranked_doc_ = self.initiate_ranking(query_as_list, vector_query, w2v_vector)
-        ranked_doc_before = ranked_doc_[:round(len(ranked_doc_) * 0.45)]
+        ranked_doc_before = ranked_doc_[:round(len(ranked_doc_) * 0.57)]
         ranked_doc_ids = [doc_id[0] for doc_id in ranked_doc_before]
         print(f"finished searcher in {time.time() - start}")
         return len(ranked_doc_ids), ranked_doc_ids
@@ -190,7 +194,8 @@ class Searcher:
         vector_query = []
         w2v_vector = []
         query_as_list = self._parser.parse_sentence(query)
-        # query_as_list = spell_checker_search(query_as_list) # spell checker
+        if self.spell_checker_flag:
+            query_as_list = spell_checker_search(query_as_list) # spell checker
         if self.word_net_flag:
             query_as_list = word_net_search(query_as_list)
         # query_as_list = self.expand_query(query_as_list, sim_to_expand=0.7)  # expand query based on w2v model

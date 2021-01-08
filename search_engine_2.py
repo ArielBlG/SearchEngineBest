@@ -43,7 +43,7 @@ class SearchEngine:
             for parsed_document in self._parser.parse_doc(document):
                 number_of_documents += 1
                 self._indexer.add_new_doc(parsed_document)
-        self._indexer.compute_weights_per_doc()
+        # self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
         print(f"finished parsing and indexing method 2 in {time.time()-start}")

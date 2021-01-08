@@ -46,7 +46,7 @@ class SearchEngine:
         # self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
-        print(f'finished parsing and indexing in {time.time()-start} ms')
+        print(f'finished parsing and indexing best in {time.time()-start} ms')
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -81,7 +81,12 @@ class SearchEngine:
             a list of tweet_ids where the first element is the most relavant
             and the last is the least relevant result.
         """
-        searcher = Searcher(self._parser, self._indexer, model=self._model, word_net=True, w2v=True)
+        searcher = Searcher(self._parser,
+                            self._indexer,
+                            model=self._model,
+                            word_net=True,
+                            w2v=True,
+                            spell_checker=True)
         return searcher.search_2(query)
 
 
@@ -91,7 +96,16 @@ def main():
     search_engine.build_index_from_parquet('data/benchmark_data_train.snappy.parquet')
     end = time.time()
     print(end - start)
-    # print(search_engine.search("mask corona children"))
+    first_query = r"Dr. Anthony Fauci wrote in a 2005 paper published in Virology Journal that hydroxychloroquine was effective in treating SARS."
+    second_query = r"The seasonal flu kills more people every year in the U.S. than COVID-19 has to date."
+    four_query = r"The coronavirus pandemic is a cover for a plan to implant trackable microchips and that the Microsoft co-founder Bill Gates is behind it"
+    seven_query = r"Herd immunity has been reached."
+    eight_query = r"Children are “almost immune from this disease.”"
+    print(search_engine.search(first_query))
+    print(search_engine.search(second_query))
+    print(search_engine.search(four_query))
+    print(search_engine.search(seven_query))
+    print(search_engine.search(eight_query))
 
 
 if __name__ == '__main__':

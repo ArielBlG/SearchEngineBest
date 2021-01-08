@@ -42,10 +42,10 @@ class SearchEngine:
             for parsed_document in self._parser.parse_doc(document):
                 number_of_documents += 1
                 self._indexer.add_new_doc(parsed_document)
-        self._indexer.compute_weights_per_doc()
+        # self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
-        print(f"finished parsing and indexing method 1 in {time.time()-start}")
+        print(f"finished parsing and indexing method 5 in {time.time()-start}")
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -83,9 +83,9 @@ class SearchEngine:
         searcher = Searcher(self._parser,
                             self._indexer,
                             model=self._model,
-                            tf_idf=True,
-                            word_net=False,
-                            spell_checker=False)
+                            w2v=True,
+                            word_net=True,
+                            spell_checker=True)
         return searcher.search(query)
 
 

@@ -33,7 +33,8 @@ class SearchEngine:
         Output:
             No output, just modifies the internal _indexer object.
         """
-        self._parser.spell_checker = True
+        # self._parser.spell_checker = True
+        start = time.time()
         df = pd.read_parquet(fn, engine="pyarrow")
         documents_list = df.values.tolist()
         # Iterate over every document in the file
@@ -43,9 +44,10 @@ class SearchEngine:
             for parsed_document in self._parser.parse_doc(document):
                 number_of_documents += 1
                 self._indexer.add_new_doc(parsed_document)
-        self._indexer.compute_weights_per_doc()
+        # self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
+        print(f"finished parsing and indexing method 4 in {time.time()-start}")
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -80,7 +82,12 @@ class SearchEngine:
             a list of tweet_ids where the first element is the most relavant 
             and the last is the least relevant result.
         """
-        searcher = Searcher(self._parser, self._indexer, model=self._model, word_net=True, w2v=True)
+        searcher = Searcher(self._parser,
+                            self._indexer,
+                            model=self._model,
+                            word_net=True,
+                            w2v=True,
+                            spell_checker=False)
         return searcher.search(query)
 
 
