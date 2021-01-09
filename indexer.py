@@ -115,7 +115,9 @@ class Indexer:
             for tweet in posting_list:
                 self.tweets_dic[tweet[0]][0] += (tweet[1] *
                                                  np.log10(self.num_of_document / self.inverted_idx[term])) ** 2
-        # for term in terms_to_remove:
-        #     self.postingDict.pop(term)
+        print(len(self.postingDict))
+        for term in terms_to_remove:
+            self.postingDict.pop(term)
+        print(len(self.postingDict))
         # print(len(self.tweets_dic.keys()))
         # print(self.num_of_document)

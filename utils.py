@@ -21,7 +21,7 @@ def load_obj(name):
     :param name: name of the pickle file
     :return: loaded pickle file
     """
-    if ".pkl" not in name:
+    if ".pkl" not in name and ".pickle" not in name:
         with open(name + '.pkl', 'rb') as f:
             return pickle.load(f)
     else:

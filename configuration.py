@@ -15,6 +15,7 @@ class ConfigClass:
         self.saveFilesWithStem = self.savedFileMainFolder + "/WithStem"
         self.saveFilesWithoutStem = self.savedFileMainFolder + "/WithoutStem"
         self.toStem = False
+        self._model_dir = None
 
         print('Project was created successfully..')
 
@@ -26,3 +27,11 @@ class ConfigClass:
 
     def get_download_model(self):
         return self._download_model
+
+    @property
+    def model_dir(self):
+        return self._model_dir
+
+    @model_dir.setter
+    def model_dir(self, model_dir):
+        self._model_dir = model_dir

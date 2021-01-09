@@ -9,7 +9,7 @@ if __name__ == '__main__':
     import timeit
     import importlib
     import logging
-
+    import plotly.graph_objects as go
     logging.basicConfig(filename='part_c_tests.log', level=logging.DEBUG,
                         filemode='w', format='%(levelname)s %(asctime)s: %(message)s')
     import metrics
@@ -37,6 +37,7 @@ if __name__ == '__main__':
     bench_lbls_path = os.path.join('data', 'benchmark_lbls_train.csv')
     queries_path = os.path.join('data', 'queries_train.tsv')
     model_dir = os.path.join('.', 'model')
+    all_results = {}
     # model_dir = os.path.join('.', 'model1')
 
     start = datetime.now()
@@ -84,8 +85,8 @@ if __name__ == '__main__':
                 logging.error('model.zip file does not exists.')
 
         # test for each search engine module
-        engine_modules = ['search_engine_' + name for name in ['1', '2', '3', 'best']]
-        # engine_modules = ['search_engine_' + name for name in ['2']]
+        # engine_modules = ['search_engine_' + name for name in ['1', '2', '3','4', '5', 'best']]
+        engine_modules = ['search_engine_' + name for name in ['best']]
         for engine_module in engine_modules:
             try:
                 # does the module file exist?
@@ -188,6 +189,8 @@ if __name__ == '__main__':
                     if recall < 0 or recall > 1:
                         logging.error(f"The average recall for {engine_module} is out of range [0,1].")
 
+                    all_results[(engine_module)] = (prec, p5, p10, p50, recall, results_map)
+
                 if engine_module == 'search_engine_best' and \
                         test_file_exists('idx_bench.pkl'):
                     logging.info('idx_bench.pkl found!')
@@ -197,6 +200,61 @@ if __name__ == '__main__':
             except Exception as e:
                 logging.error(f'The following error occured while testing the module {engine_module}.')
                 logging.error(e, exc_info=True)
+
+
+        # teams = ['search_engine_1', 'search_engine_2', 'search_engine_3',
+        #          'search_engine_4', 'search_engine_5', 'search_engine_best']
+        # prec = [all_results[(teams[0])][0], all_results[(teams[1])][0], all_results[(teams[2])][0],
+        #         all_results[(teams[3])][0], all_results[(teams[4])][0], all_results[(teams[5])][0]]
+        # p5 = [all_results[(teams[0])][1], all_results[(teams[1])][1], all_results[(teams[2])][1],
+        #       all_results[(teams[3])][1], all_results[(teams[4])][1], all_results[(teams[5])][1]]
+        # p10 = [all_results[(teams[0])][2], all_results[(teams[1])][2], all_results[(teams[2])][2],
+        #        all_results[(teams[3])][2], all_results[(teams[4])][2], all_results[(teams[5])][2]]
+        # p50 = [all_results[(teams[0])][3], all_results[(teams[1])][3], all_results[(teams[2])][3],
+        #        all_results[(teams[3])][3], all_results[(teams[4])][3], all_results[(teams[5])][3]]
+        # recall = [all_results[(teams[0])][4], all_results[(teams[1])][4], all_results[(teams[2])][4],
+        #           all_results[(teams[3])][4], all_results[(teams[4])][4], all_results[(teams[5])][4]]
+        # res_map = [all_results[(teams[0])][5], all_results[(teams[1])][5], all_results[(teams[2])][5],
+        #           all_results[(teams[3])][5], all_results[(teams[4])][5], all_results[(teams[5])][5]]
+        #
+        # fig = go.Figure()
+        # trace0 = go.Bar(x=teams, y=res_map, xaxis='x2', yaxis='y2',
+        #                 marker=dict(color='#e40303'),
+        #                 name='MAP')
+        # trace1 = go.Bar(x=teams, y=prec, xaxis='x2', yaxis='y2',
+        #                 marker=dict(color='#ff8c00'),
+        #                 name='Precision')
+        # trace2 = go.Bar(x=teams, y=p5, xaxis='x2', yaxis='y2',
+        #                 marker=dict(color='#ffed00'),
+        #                 name='Precision@5')
+        # trace3 = go.Bar(x=teams, y=p10, xaxis='x2', yaxis='y2',
+        #                 marker=dict(color='#008026'),
+        #                 name='Precision@10')
+        # trace4 = go.Bar(x=teams, y=p50, xaxis='x2', yaxis='y2',
+        #                 marker=dict(color='#004dff'),
+        #                 name='Precision@50')
+        # trace5 = go.Bar(x=teams, y=recall, xaxis='x2', yaxis='y2',
+        #                 marker=dict(color='#750787'),
+        #                 name='Recall')
+        # fig.add_traces([trace0, trace1, trace2, trace3, trace4, trace5])
+        # fig['layout']['xaxis2'] = {}
+        # fig['layout']['yaxis2'] = {}
+        # # Edit layout for subplots
+        # fig.layout.yaxis.update({'domain': [0, .45]})
+        # fig.layout.yaxis2.update({'domain': [.6, 1]})
+        # # The graph's yaxis2 MUST BE anchored to the graph's xaxis2 and vice versa
+        # fig.layout.yaxis2.update({'anchor': 'x2'})
+        # fig.layout.xaxis2.update({'anchor': 'y2'})
+        # fig.layout.yaxis2.update({'title': 'Percentage'})
+        # # Update the margins to add a title and see graph x-labels.
+        # fig.layout.margin.update({'t': 75, 'l': 50})
+        # fig.layout.update({'title': f'Final results'})
+        # fig.layout.update({'height': 800})
+        #
+        # if not os.path.exists("images"):
+        #     os.mkdir("images")
+        # # Plot!
+        # fig.write_image(f"./images/figOverall_gay.png")
 
     except Exception as e:
         logging.error(e, exc_info=True)

@@ -19,8 +19,9 @@ class SearchEngine:
     def __init__(self, config=None):
         self._config = config
         self._indexer = Indexer(config)
-        self._model = None
-        self.load_precomputed_model(os.path.join('.', 'model'))
+        self.load_model(os.path.join('.', 'model'))
+        self._model = self._config.model_dir
+        # self.load_precomputed_model(os.path.join('.', 'model'))
         self._parser = Parse(model=self._model)
 
     # DO NOT MODIFY THIS SIGNATURE
@@ -33,20 +34,20 @@ class SearchEngine:
         Output:
             No output, just modifies the internal _indexer object.
         """
+        start = time.time()
         df = pd.read_parquet(fn, engine="pyarrow")
         documents_list = df.values.tolist()
         # Iterate over every document in the file
         number_of_documents = 0
         for idx, document in enumerate(documents_list):
             # parse the document
-            parsed_document = self._parser.parse_doc(document)
-            number_of_documents += 1
-            # print(number_of_documents)
-            # index the document data
-            self._indexer.add_new_doc(parsed_document)
-        self._indexer.compute_weights_per_doc()
+            for parsed_document in self._parser.parse_doc(document):
+                number_of_documents += 1
+                self._indexer.add_new_doc(parsed_document)
+        # self._indexer.compute_weights_per_doc()
         # self._indexer.save_index("idx_bench")
         print('Finished parsing and indexing.')
+        print(f'finished parsing and indexing best in {time.time()-start} ms')
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -66,7 +67,15 @@ class SearchEngine:
         This is where you would load models like word2vec, LSI, LDA, etc. and 
         assign to self._model, which is passed on to the searcher at query time.
         """
-        self._model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
+        # self._model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
+        pass
+
+    def load_model(self, model_dir=None):
+        """
+
+        """
+        model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
+        self._config.model_dir = model
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -81,7 +90,12 @@ class SearchEngine:
             a list of tweet_ids where the first element is the most relavant
             and the last is the least relevant result.
         """
-        searcher = Searcher(self._parser, self._indexer, model=self._model, word_net=True, w2v=True)
+        searcher = Searcher(self._parser,
+                            self._indexer,
+                            model=self._model,
+                            word_net=True,
+                            w2v=True,
+                            spell_checker=True)
         return searcher.search_2(query)
 
 
@@ -91,7 +105,16 @@ def main():
     search_engine.build_index_from_parquet('data/benchmark_data_train.snappy.parquet')
     end = time.time()
     print(end - start)
-    # print(search_engine.search("mask corona children"))
+    first_query = r"Dr. Anthony Fauci wrote in a 2005 paper published in Virology Journal that hydroxychloroquine was effective in treating SARS."
+    second_query = r"The seasonal flu kills more people every year in the U.S. than COVID-19 has to date."
+    four_query = r"The coronavirus pandemic is a cover for a plan to implant trackable microchips and that the Microsoft co-founder Bill Gates is behind it"
+    seven_query = r"Herd immunity has been reached."
+    eight_query = r"Children are “almost immune from this disease.”"
+    print(search_engine.search(first_query))
+    print(search_engine.search(second_query))
+    print(search_engine.search(four_query))
+    print(search_engine.search(seven_query))
+    print(search_engine.search(eight_query))
 
 
 if __name__ == '__main__':
