@@ -182,27 +182,27 @@ if __name__ == '__main__':
         print(recall)
         dict_to_csv["recall"]= recall
 
-        df_to_csv = pd.DataFrame(dict_to_csv)
-        if not os.path.exists("metrics_output"):
-            os.mkdir("metrics_output")
-
-        df_to_csv.to_csv(f"./metrics_output/{q_id}.csv")
+        # df_to_csv = pd.DataFrame(dict_to_csv)
+        # if not os.path.exists("metrics_output"):
+        #     os.mkdir("metrics_output")
+        #
+        # df_to_csv.to_csv(f"./metrics_output/{q_id}.csv")
 
         # Make traces for graph TODO: Change color pallete with the site https://www.coolors.co/generate
         trace1 = go.Bar(x=teams, y=prec, xaxis='x2', yaxis='y2',
-                        marker=dict(color='#84828F'),
-                        name='Prec')
+                        marker=dict(color='#717C89'),
+                        name='Precision')
         trace2 = go.Bar(x=teams, y=p5, xaxis='x2', yaxis='y2',
-                        marker=dict(color='#6A687A'),
+                        marker=dict(color='#8AA2A9'),
                         name='Precision@5')
         trace3 = go.Bar(x=teams, y=p10, xaxis='x2', yaxis='y2',
-                        marker=dict(color='#536271'),
+                        marker=dict(color='#90BAAD'),
                         name='Precision@10')
         trace4 = go.Bar(x=teams, y=p50, xaxis='x2', yaxis='y2',
-                        marker=dict(color='#3E4C5E'),
+                        marker=dict(color='#A1E5AB'),
                         name='Precision@50')
         trace5 = go.Bar(x=teams, y=recall, xaxis='x2', yaxis='y2',
-                        marker=dict(color='#2C3D55'),
+                        marker=dict(color='#ADF6B1'),
                         name='Recall')
 
         # Add trace data to figure

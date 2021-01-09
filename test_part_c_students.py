@@ -223,7 +223,7 @@ if __name__ == '__main__':
         #                 name='MAP')
         # trace1 = go.Bar(x=teams, y=prec, xaxis='x2', yaxis='y2',
         #                 marker=dict(color='#ff8c00'),
-        #                 name='Prec')
+        #                 name='Precision')
         # trace2 = go.Bar(x=teams, y=p5, xaxis='x2', yaxis='y2',
         #                 marker=dict(color='#ffed00'),
         #                 name='Precision@5')
@@ -248,7 +248,7 @@ if __name__ == '__main__':
         # fig.layout.yaxis2.update({'title': 'Percentage'})
         # # Update the margins to add a title and see graph x-labels.
         # fig.layout.margin.update({'t': 75, 'l': 50})
-        # fig.layout.update({'title': f'Final results:'})
+        # fig.layout.update({'title': f'Final results'})
         # fig.layout.update({'height': 800})
         #
         # if not os.path.exists("images"):
