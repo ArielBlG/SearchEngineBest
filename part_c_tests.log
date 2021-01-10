@@ -1,64 +1,19 @@
-INFO 2021-01-10 19:36:14,047: Successfully loaded benchmark labels data.
-INFO 2021-01-10 19:36:14,050: Successfully loaded queries data.
-DEBUG 2021-01-10 19:36:14,256: Starting new HTTPS connection (1): docs.google.com:443
-DEBUG 2021-01-10 19:36:14,786: https://docs.google.com:443 "GET /uc?export=download&id=15mBW3vr8zkBKKQEWpyfb_w323UQQSscV HTTP/1.1" 200 None
-DEBUG 2021-01-10 19:36:14,793: Starting new HTTPS connection (2): docs.google.com:443
-DEBUG 2021-01-10 19:36:15,214: https://docs.google.com:443 "GET /uc?export=download&id=15mBW3vr8zkBKKQEWpyfb_w323UQQSscV&confirm=_rXA HTTP/1.1" 302 None
-DEBUG 2021-01-10 19:36:15,234: Starting new HTTPS connection (1): doc-00-4o-docs.googleusercontent.com:443
-DEBUG 2021-01-10 19:36:15,565: https://doc-00-4o-docs.googleusercontent.com:443 "GET /docs/securesc/9k0mi3ua8r70aofisror034qqp1214a6/m6jp1au4gteifrnf8q19g8i0e0mhndq7/1610300175000/00759999090074894599/00528443282527875128Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e=download HTTP/1.1" 302 0
-DEBUG 2021-01-10 19:36:15,756: https://docs.google.com:443 "GET /nonceSigner?nonce=rjp4rglulelc4&continue=https://doc-00-4o-docs.googleusercontent.com/docs/securesc/9k0mi3ua8r70aofisror034qqp1214a6/m6jp1au4gteifrnf8q19g8i0e0mhndq7/1610300175000/00759999090074894599/00528443282527875128Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e%3Ddownload&hash=4tddi18htlfj10rs1lihpa7pkl88d27f HTTP/1.1" 302 0
-DEBUG 2021-01-10 19:36:16,079: https://doc-00-4o-docs.googleusercontent.com:443 "GET /docs/securesc/9k0mi3ua8r70aofisror034qqp1214a6/m6jp1au4gteifrnf8q19g8i0e0mhndq7/1610300175000/00759999090074894599/00528443282527875128Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e=download&nonce=rjp4rglulelc4&user=00528443282527875128Z&hash=ttkfkp0qbi59hfosqb7nhjt498b3igsk HTTP/1.1" 200 None
-INFO 2021-01-10 19:36:20,703: Successfully downloaded and extracted pretrained model into ./model.
-INFO 2021-01-10 19:36:22,605: Successfully imported module search_engine_best.
-INFO 2021-01-10 19:36:22,623: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-10 19:36:22,624: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-10 19:36:23,142: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-10 19:36:26,439: Building the index in search_engine_best for benchmark data took 3.2718125120000003 seconds.
-INFO 2021-01-10 19:36:26,439: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-10 19:36:26,439: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-10 19:36:27,053: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-10 19:36:29,109: search_engine_best successfully returned 778 results for the query 'bioweapon'.
-DEBUG 2021-01-10 19:36:30,503: search_engine_best successfully returned 606 results for query number 1.
-DEBUG 2021-01-10 19:36:31,351: search_engine_best successfully returned 3102 results for query number 2.
-DEBUG 2021-01-10 19:36:32,764: search_engine_best successfully returned 2860 results for query number 3.
-DEBUG 2021-01-10 19:36:33,365: search_engine_best successfully returned 470 results for query number 4.
-DEBUG 2021-01-10 19:36:33,753: search_engine_best successfully returned 665 results for query number 5.
-DEBUG 2021-01-10 19:36:34,661: search_engine_best successfully returned 2807 results for query number 6.
-DEBUG 2021-01-10 19:36:34,938: search_engine_best successfully returned 954 results for query number 7.
-DEBUG 2021-01-10 19:36:36,036: search_engine_best successfully returned 1750 results for query number 8.
-DEBUG 2021-01-10 19:36:36,606: search_engine_best successfully returned 2072 results for query number 9.
-DEBUG 2021-01-10 19:36:37,414: search_engine_best successfully returned 1839 results for query number 10.
-DEBUG 2021-01-10 19:36:37,997: search_engine_best successfully returned 2305 results for query number 11.
-DEBUG 2021-01-10 19:36:38,920: search_engine_best successfully returned 2789 results for query number 12.
-DEBUG 2021-01-10 19:36:39,471: search_engine_best successfully returned 2324 results for query number 13.
-DEBUG 2021-01-10 19:36:40,581: search_engine_best successfully returned 2312 results for query number 14.
-DEBUG 2021-01-10 19:36:40,847: search_engine_best successfully returned 2002 results for query number 15.
-DEBUG 2021-01-10 19:36:41,566: search_engine_best successfully returned 2053 results for query number 16.
-DEBUG 2021-01-10 19:36:41,951: search_engine_best successfully returned 1645 results for query number 17.
-DEBUG 2021-01-10 19:36:42,635: search_engine_best successfully returned 1514 results for query number 18.
-DEBUG 2021-01-10 19:36:43,523: search_engine_best successfully returned 1904 results for query number 19.
-DEBUG 2021-01-10 19:36:44,520: search_engine_best successfully returned 1849 results for query number 20.
-DEBUG 2021-01-10 19:36:45,819: search_engine_best successfully returned 1772 results for query number 21.
-DEBUG 2021-01-10 19:36:46,162: search_engine_best successfully returned 2787 results for query number 22.
-DEBUG 2021-01-10 19:36:47,004: search_engine_best successfully returned 2527 results for query number 23.
-DEBUG 2021-01-10 19:36:48,102: search_engine_best successfully returned 3214 results for query number 24.
-DEBUG 2021-01-10 19:36:48,549: search_engine_best successfully returned 2184 results for query number 25.
-DEBUG 2021-01-10 19:36:49,424: search_engine_best successfully returned 1217 results for query number 26.
-DEBUG 2021-01-10 19:36:50,193: search_engine_best successfully returned 1261 results for query number 27.
-DEBUG 2021-01-10 19:36:51,027: search_engine_best successfully returned 2380 results for query number 28.
-DEBUG 2021-01-10 19:36:52,142: search_engine_best successfully returned 1280 results for query number 29.
-DEBUG 2021-01-10 19:36:52,477: search_engine_best successfully returned 1636 results for query number 30.
-DEBUG 2021-01-10 19:36:53,868: search_engine_best successfully returned 624 results for query number 31.
-DEBUG 2021-01-10 19:36:54,703: search_engine_best successfully returned 2745 results for query number 32.
-DEBUG 2021-01-10 19:36:55,341: search_engine_best successfully returned 2271 results for query number 33.
-DEBUG 2021-01-10 19:36:55,673: search_engine_best successfully returned 1285 results for query number 34.
-DEBUG 2021-01-10 19:36:56,079: search_engine_best successfully returned 979 results for query number 35.
-DEBUG 2021-01-10 19:37:01,395: search_engine_best results have MAP value of 0.7167403886671083.
-DEBUG 2021-01-10 19:37:01,432: search_engine_best results produced average precision of 0.6164095751467146.
-DEBUG 2021-01-10 19:37:01,432: search_engine_best results produced average precision@5 of 0.7942857142857143.
-DEBUG 2021-01-10 19:37:01,432: search_engine_best results produced average precision@10 of 0.7828571428571428.
-DEBUG 2021-01-10 19:37:01,432: search_engine_best results produced average precision@50 of 0.7177142857142856.
-DEBUG 2021-01-10 19:37:01,432: search_engine_best results produced average recall of 0.9161946461688176.
-INFO 2021-01-10 19:37:01,432: idx_bench.pkl found!
-INFO 2021-01-10 19:37:01,696: Successfully loaded idx_bench.pkl using search_engine_best.
-DEBUG 2021-01-10 19:37:01,696: Total runtime was: 0:00:47.689498
+INFO 2021-01-10 19:45:47,201: Successfully loaded benchmark labels data.
+INFO 2021-01-10 19:45:47,207: Successfully loaded queries data.
+DEBUG 2021-01-10 19:45:47,609: Starting new HTTPS connection (1): docs.google.com:443
+DEBUG 2021-01-10 19:45:48,190: https://docs.google.com:443 "GET /uc?export=download&id=15mBW3vr8zkBKKQEWpyfb_w323UQQSscV HTTP/1.1" 200 None
+DEBUG 2021-01-10 19:45:48,198: Starting new HTTPS connection (2): docs.google.com:443
+DEBUG 2021-01-10 19:45:48,668: https://docs.google.com:443 "GET /uc?export=download&id=15mBW3vr8zkBKKQEWpyfb_w323UQQSscV&confirm=1ypS HTTP/1.1" 302 None
+DEBUG 2021-01-10 19:45:48,690: Starting new HTTPS connection (1): doc-0s-c4-docs.googleusercontent.com:443
+DEBUG 2021-01-10 19:45:49,048: https://doc-0s-c4-docs.googleusercontent.com:443 "GET /docs/securesc/tjd6vcjep414t131g0grbkl1becngtdp/17bf184v5kdunpq85qgfh5umjvhv9tot/1610300700000/00759999090074894599/06822329426740972173Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e=download HTTP/1.1" 302 0
+DEBUG 2021-01-10 19:45:49,240: https://docs.google.com:443 "GET /nonceSigner?nonce=kvpic68nclmu8&continue=https://doc-0s-c4-docs.googleusercontent.com/docs/securesc/tjd6vcjep414t131g0grbkl1becngtdp/17bf184v5kdunpq85qgfh5umjvhv9tot/1610300700000/00759999090074894599/06822329426740972173Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e%3Ddownload&hash=t0u71jjtjpdr4b69t67bdh87c38rtegs HTTP/1.1" 302 0
+DEBUG 2021-01-10 19:45:49,665: https://doc-0s-c4-docs.googleusercontent.com:443 "GET /docs/securesc/tjd6vcjep414t131g0grbkl1becngtdp/17bf184v5kdunpq85qgfh5umjvhv9tot/1610300700000/00759999090074894599/06822329426740972173Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e=download&nonce=kvpic68nclmu8&user=06822329426740972173Z&hash=1h565bm31ug5f9rd36p302sv1epbr356 HTTP/1.1" 200 None
+INFO 2021-01-10 19:45:54,987: Successfully downloaded and extracted pretrained model into ./model.
+INFO 2021-01-10 19:45:56,844: Successfully imported module search_engine_best.
+INFO 2021-01-10 19:45:56,845: loading projection weights from ./model/word2vec_model.bin
+DEBUG 2021-01-10 19:45:56,845: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-10 19:45:57,729: loaded (65955, 300) matrix from ./model/word2vec_model.bin
+DEBUG 2021-01-10 19:46:03,359: Building the index in search_engine_best for benchmark data took 5.607452545000001 seconds.
+INFO 2021-01-10 19:46:03,359: loading projection weights from ./model/word2vec_model.bin
+DEBUG 2021-01-10 19:46:03,360: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-10 19:46:04,322: loaded (65955, 300) matrix from ./model/word2vec_model.bin

@@ -172,7 +172,9 @@ class Ranker:
         """
         temp = list(map(lambda k: (tweets_dict[k][1], tweets_dict[k][3]), lst_matrix_w_id))
         retweet_vector, w2v_matrix = zip(*temp)
-        matrix_wo_id = matrix_w_id.drop(columns=["Document"]).to_numpy()
+        # matrix_wo_id = matrix_w_id.drop(columns=["Document"]).to_numpy()
+        matrix_w_id = matrix_w_id.drop(columns=["Document"])
+        matrix_wo_id = np.array(matrix_w_id)
 
         return Ranker.cos_sim_w2v(matrix=matrix_wo_id, w2v_matrix=w2v_matrix, w2v_vector=w2v_vector)
 
@@ -189,7 +191,9 @@ class Ranker:
         """
         temp = list(map(lambda k: (tweets_dict[k][0], tweets_dict[k][1]), lst_matrix_w_id))
         w_i_j_vector, retweet_vector = zip(*temp)
-        matrix_wo_id = matrix_w_id.drop(columns=["Document"]).to_numpy()
+        matrix_w_id = matrix_w_id.drop(columns=["Document"])
+        matrix_wo_id = np.array(matrix_w_id)
+        # matrix_wo_id = matrix_w_id.drop(columns=["Document"]).to_numpy()
 
         return Ranker.cos_sim_tf_idf(matrix=matrix_wo_id, vector=vector, tweets_w_ij=w_i_j_vector)
 
@@ -207,8 +211,9 @@ class Ranker:
         """
         temp = list(map(lambda k: (tweets_dict[k][0], tweets_dict[k][1], tweets_dict[k][3]), lst_matrix_w_id))
         w_i_j_vector, retweet_vector, w2v_matrix = zip(*temp)
-        matrix_wo_id = matrix_w_id.drop(columns=["Document"]).to_numpy()
-
+        # matrix_wo_id = matrix_w_id.drop(columns=["Document"]).to_numpy()
+        matrix_w_id = matrix_w_id.drop(columns=["Document"])
+        matrix_wo_id = np.array(matrix_w_id)
         return Ranker.cos_sim(matrix=matrix_wo_id, vector=vector,
                               tweets_w_ij=w_i_j_vector,
                               w2v_matrix=w2v_matrix,
