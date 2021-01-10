@@ -9,9 +9,8 @@ from parse_patterns import *
 import re
 from gensim.models import KeyedVectors
 import numpy as np
-# TODO: turn on for spacy
-# import spacy
-# nlp = spacy.load('en_core_web_sm')
+import spacy
+nlp = spacy.load('en_core_web_sm')
 # stemmer = PorterStemmer()
 # from nltk.tokenize import TweetTokenizer
 
@@ -230,10 +229,8 @@ class Parse(object):
         :param text: text to lemmatize
         :return: list of lemmatize tokens from a given text
         """
-        # TODO: turn on for spacy
-        pass
-        # new_list = list(map(lambda term: nlp(term, disable=["tagger", "parser", "ner"])[0].lemma_, text))
-        # return new_list
+        new_list = list(map(lambda term: nlp(term, disable=["tagger", "parser", "ner"])[0].lemma_, text))
+        return new_list
 
     def parse_doc(self, doc_as_list):
         """
@@ -276,14 +273,13 @@ class Parse(object):
                 else:
                     term = term[1:]
             # self.frequency_dictionary[term] = self.frequency_dictionary.get(term, 0) + 1
-            # TODO: turn on for spacy
-            # if term in self.lemma_dict:
-            #     term = self.lemma_dict[term]
-            # else:
-            #     term_nlp = nlp(term, disable=["tagger", "parser", "ner"])
-            #     if len(term_nlp) < 2:
-            #         self.lemma_dict[term] = term_nlp[0].lemma_
-            #         term = self.lemma_dict[term]
+            if term in self.lemma_dict:
+                term = self.lemma_dict[term]
+            else:
+                term_nlp = nlp(term, disable=["tagger", "parser", "ner"])
+                if len(term_nlp) < 2:
+                    self.lemma_dict[term] = term_nlp[0].lemma_
+                    term = self.lemma_dict[term]
             if term.isalpha():
                 try:
                     vector = self._model[term]
