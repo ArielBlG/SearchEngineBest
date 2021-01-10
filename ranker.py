@@ -123,7 +123,7 @@ class Ranker:
         """
         matrix_w_id = Ranker.get_matrix(relevant_doc, doc_set, num_of_docs=len(tweets_dict))
         # start = time.time()
-        a = matrix_w_id['Document'].to_list()
+        a = matrix_w_id['Document'].values.tolist()
         if ranker.tf_idf_flag and ranker.w2v_flag:
             out = Ranker.rank_relevant_docs_both(tweets_dict=tweets_dict,
                                                  lst_matrix_w_id=a,

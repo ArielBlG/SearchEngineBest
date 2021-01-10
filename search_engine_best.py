@@ -7,6 +7,7 @@ from configuration import ConfigClass
 from parser_module import Parse
 from indexer import Indexer
 from searcher import Searcher
+from GUI import GUI
 import utils
 from gensim.models import KeyedVectors
 
@@ -19,9 +20,9 @@ class SearchEngine:
     def __init__(self, config=None):
         self._config = config
         self._indexer = Indexer(config)
-        self.load_model(os.path.join('.', 'model'))
-        self._model = self._config.model_dir
-        # self.load_precomputed_model(os.path.join('.', 'model'))
+        self._model = None
+        self.load_model(self._config.model_dir)
+        self.load_precomputed_model(self._config.model_dir)
         self._parser = Parse(model=self._model)
 
     # DO NOT MODIFY THIS SIGNATURE
@@ -45,9 +46,9 @@ class SearchEngine:
                 number_of_documents += 1
                 self._indexer.add_new_doc(parsed_document)
         # self._indexer.compute_weights_per_doc()
-        # self._indexer.save_index("idx_bench")
+        self._indexer.save_index('idx_bench')
         print('Finished parsing and indexing.')
-        print(f'finished parsing and indexing best in {time.time()-start} ms')
+        print(f'Finished parsing and indexing best in {time.time()-start} ms')
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -64,18 +65,21 @@ class SearchEngine:
     def load_precomputed_model(self, model_dir=None):
         """
         Loads a pre-computed model (or models) so we can answer queries.
-        This is where you would load models like word2vec, LSI, LDA, etc. and 
+        This is where you would load models like word2vec, LSI, LDA, etc. and
         assign to self._model, which is passed on to the searcher at query time.
         """
-        # self._model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
-        pass
+        self._model = KeyedVectors.load_word2vec_format(self._config.model_dir, binary=True)
+        # pass
 
     def load_model(self, model_dir=None):
         """
 
         """
-        model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
-        self._config.model_dir = model
+        # model = KeyedVectors.load_word2vec_format(os.path.join(model_dir, "word2vec_model.bin"), binary=True)
+        # if model.vocab:
+        #     print(f"model loaded succefully with {len(model.vocab.keys())} words")
+
+        self._config.model_dir = os.path.join(os.path.join('.', 'model'), "word2vec_model.bin")
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -100,22 +104,40 @@ class SearchEngine:
 
 
 def main():
+    conf = ConfigClass()
+    model_url = conf.get_model_url()
+    if model_url is not None and conf.get_download_model():
+        dest_path = 'model.zip'
+        utils.download_file_from_google_drive(model_url,dest_path)
+        if not os.path.exists(os.path.join('.', 'model/205417637')):
+            os.mkdir(os.path.join('.', 'model/205417637'))
+        utils.unzip_file(dest_path, os.path.join('.', 'model/205417637'))
+    path = conf.get__corpusPath()
+    pd.options.display.max_colwidth = 10000
+    df = pd.read_parquet(path, engine="pyarrow")
+
     start = time.time()
-    search_engine = SearchEngine()
-    search_engine.build_index_from_parquet('data/benchmark_data_train.snappy.parquet')
+    gui = GUI()
+    gui.window.Read(timeout=0)
+    search_engine = SearchEngine(config=conf)
+    search_engine.build_index_from_parquet(conf.get__corpusPath())
     end = time.time()
     print(end - start)
-    first_query = r"Dr. Anthony Fauci wrote in a 2005 paper published in Virology Journal that hydroxychloroquine was effective in treating SARS."
-    second_query = r"The seasonal flu kills more people every year in the U.S. than COVID-19 has to date."
-    four_query = r"The coronavirus pandemic is a cover for a plan to implant trackable microchips and that the Microsoft co-founder Bill Gates is behind it"
-    seven_query = r"Herd immunity has been reached."
-    eight_query = r"Children are “almost immune from this disease.”"
-    print(search_engine.search(first_query))
-    print(search_engine.search(second_query))
-    print(search_engine.search(four_query))
-    print(search_engine.search(seven_query))
-    print(search_engine.search(eight_query))
-
+    gui.switchWindow()
+    while(True):
+        try:
+            type, res = gui.runGUI()
+            if type == 1 and res == "Exit":
+                break
+            if type == 1 and res != None and res != '':
+                answer = search_engine.search(res)
+                gui.updateAnswers(answer[1])
+            if type == 2 and res != None and res != []:
+                tweet = list(df.loc[df['tweet_id'] == res[0]]['full_text'])[0]
+                gui.setDocText(tweet)
+        except Exception as e:
+            print(e)
+    gui.window.close()
 
 if __name__ == '__main__':
     main()

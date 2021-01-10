@@ -9,7 +9,7 @@ if __name__ == '__main__':
     import timeit
     import importlib
     import logging
-    import plotly.graph_objects as go
+    # import plotly.graph_objects as go
     logging.basicConfig(filename='part_c_tests.log', level=logging.DEBUG,
                         filemode='w', format='%(levelname)s %(asctime)s: %(message)s')
     import metrics
@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
         config = configuration.ConfigClass()
 
-        # do we need to download a pretrained model?
+        # do we need to download a pretrained 205417637?
         model_url = config.get_model_url()
         if model_url is not None and config.get_download_model():
             import utils
@@ -106,7 +106,7 @@ if __name__ == '__main__':
                     f"Building the index in {engine_module} for benchmark data took {build_idx_time} seconds.")
                 if build_idx_time > 60:
                     logging.error('Parsing and index our *small* benchmark dataset took over a minute!')
-                # test loading precomputed model
+                # test loading precomputed 205417637
                 engine.load_precomputed_model(model_dir)
 
                 # test that we can run one query and get results in the format we expect

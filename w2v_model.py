@@ -28,7 +28,7 @@ t = time()
 
 w2v_model.train(sentences, total_examples=w2v_model.corpus_count, epochs=30, report_delay=1)
 
-print('Time to train the model: {} mins'.format(round((time() - t) / 60, 2)))
+print('Time to train the 205417637: {} mins'.format(round((time() - t) / 60, 2)))
 w2v_model.init_sims(replace=True)
 word_vectors = w2v_model.wv
 word_vectors.save_word2vec_format("word2vec_model.bin", binary=True)

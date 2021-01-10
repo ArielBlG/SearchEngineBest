@@ -5,7 +5,6 @@ import numpy as np
 from nltk.corpus import wordnet as wn
 from ranker import Ranker
 from spellchecker import SpellChecker
-
 spell = SpellChecker()
 import utils
 from gensim.models import KeyedVectors
@@ -26,7 +25,6 @@ def spell_checker_search(query_list):
             new_query_list.append(spell.correction(misspelled.pop()))
             new_query_list.append(term)
     return new_query_list
-
 
 def _get_words_for_expansion(ranked_doc_, query_as_list, tweets_dic, k=1):
     """
@@ -65,7 +63,6 @@ def _get_words_for_expansion(ranked_doc_, query_as_list, tweets_dic, k=1):
 
     return words_after_expansion
 
-
 def word_net_search(query_list):
     """
     The function search for synonyms for each for of the query in order to preform query expansion
@@ -91,8 +88,8 @@ def word_net_search(query_list):
 # DO NOT MODIFY CLASS NAME
 class Searcher:
     # DO NOT MODIFY THIS SIGNATURE
-    # You can change the internal implementation as you see fit. The model 
-    # parameter allows you to pass in a precomputed model that is already in 
+    # You can change the internal implementation as you see fit. The 205417637
+    # parameter allows you to pass in a precomputed 205417637 that is already in
     # memory for the searcher to use such as LSI, LDA, Word2vec models. 
     # MAKE SURE YOU DON'T LOAD A MODEL INTO MEMORY HERE AS THIS IS RUN AT QUERY TIME.
     def __init__(self, parser, indexer, model=None, **kwargs):
@@ -198,7 +195,7 @@ class Searcher:
             query_as_list = spell_checker_search(query_as_list) # spell checker
         if self.word_net_flag:
             query_as_list = word_net_search(query_as_list)
-        # query_as_list = self.expand_query(query_as_list, sim_to_expand=0.7)  # expand query based on w2v model
+        # query_as_list = self.expand_query(query_as_list, sim_to_expand=0.7)  # expand query based on w2v 205417637
         query_as_list = self._parser.get_lemma_text(query_as_list)
         if self.tf_idf_flag:
             vector_query = self.get_vector_query(query_as_list)

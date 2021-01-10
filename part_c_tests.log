@@ -1,61 +1,64 @@
-ERROR 2021-01-08 19:13:32,262: report_part_c.docx does not exist.
-INFO 2021-01-08 19:13:32,276: Successfully loaded benchmark labels data.
-INFO 2021-01-08 19:13:32,278: Successfully loaded queries data.
-DEBUG 2021-01-08 19:13:32,431: Starting new HTTPS connection (1): docs.google.com:443
-DEBUG 2021-01-08 19:13:32,850: https://docs.google.com:443 "GET /uc?export=download&id=1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb HTTP/1.1" 200 None
-DEBUG 2021-01-08 19:13:32,863: Starting new HTTPS connection (2): docs.google.com:443
-DEBUG 2021-01-08 19:13:33,677: https://docs.google.com:443 "GET /uc?export=download&id=1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb&confirm=Js1d HTTP/1.1" 302 None
-DEBUG 2021-01-08 19:13:33,690: Starting new HTTPS connection (1): doc-14-a4-docs.googleusercontent.com:443
-DEBUG 2021-01-08 19:13:34,086: https://doc-14-a4-docs.googleusercontent.com:443 "GET /docs/securesc/s1toduiobm4tdf31o67m1jsrpe1t3306/t7fm33pp43h2he42gnhlrhq7ouc5iu78/1610125950000/03931303218117375328/02551232745429515416Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e=download HTTP/1.1" 302 0
-DEBUG 2021-01-08 19:13:34,264: https://docs.google.com:443 "GET /nonceSigner?nonce=p6868q54hbq9m&continue=https://doc-14-a4-docs.googleusercontent.com/docs/securesc/s1toduiobm4tdf31o67m1jsrpe1t3306/t7fm33pp43h2he42gnhlrhq7ouc5iu78/1610125950000/03931303218117375328/02551232745429515416Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e%3Ddownload&hash=uil0oag95e4ikj9u8rctjgtri24a00vi HTTP/1.1" 302 0
-DEBUG 2021-01-08 19:13:34,701: https://doc-14-a4-docs.googleusercontent.com:443 "GET /docs/securesc/s1toduiobm4tdf31o67m1jsrpe1t3306/t7fm33pp43h2he42gnhlrhq7ouc5iu78/1610125950000/03931303218117375328/02551232745429515416Z/1QlGZyO4IZdS2Vne9QadMkjS2BdyFdcfb?e=download&nonce=p6868q54hbq9m&user=02551232745429515416Z&hash=qbot2ksuqt6q5v0okm6m4g033e6cd30o HTTP/1.1" 200 None
-INFO 2021-01-08 19:13:38,981: Successfully downloaded and extracted pretrained model into ./model.
-INFO 2021-01-08 19:13:42,658: Successfully imported module search_engine_best.
-INFO 2021-01-08 19:13:42,659: loading projection weights from ./model/word2vec_model.bin
-DEBUG 2021-01-08 19:13:42,659: {'uri': './model/word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
-INFO 2021-01-08 19:13:43,644: loaded (65955, 300) matrix from ./model/word2vec_model.bin
-DEBUG 2021-01-08 19:13:49,440: Building the index in search_engine_best for benchmark data took 5.757090377999999 seconds.
-DEBUG 2021-01-08 19:13:52,251: search_engine_best successfully returned 794 results for the query 'bioweapon'.
-DEBUG 2021-01-08 19:13:54,386: search_engine_best successfully returned 608 results for query number 1.
-DEBUG 2021-01-08 19:13:55,465: search_engine_best successfully returned 2528 results for query number 2.
-DEBUG 2021-01-08 19:13:57,343: search_engine_best successfully returned 2887 results for query number 3.
-DEBUG 2021-01-08 19:13:58,021: search_engine_best successfully returned 1749 results for query number 4.
-DEBUG 2021-01-08 19:13:58,653: search_engine_best successfully returned 727 results for query number 5.
-DEBUG 2021-01-08 19:13:59,193: search_engine_best successfully returned 2832 results for query number 6.
-DEBUG 2021-01-08 19:13:59,493: search_engine_best successfully returned 1170 results for query number 7.
-DEBUG 2021-01-08 19:14:00,676: search_engine_best successfully returned 1766 results for query number 8.
-DEBUG 2021-01-08 19:14:01,170: search_engine_best successfully returned 2110 results for query number 9.
-DEBUG 2021-01-08 19:14:02,068: search_engine_best successfully returned 1895 results for query number 10.
-DEBUG 2021-01-08 19:14:02,650: search_engine_best successfully returned 2324 results for query number 11.
-DEBUG 2021-01-08 19:14:03,534: search_engine_best successfully returned 3088 results for query number 12.
-DEBUG 2021-01-08 19:14:04,188: search_engine_best successfully returned 3080 results for query number 13.
-DEBUG 2021-01-08 19:14:05,511: search_engine_best successfully returned 2366 results for query number 14.
-DEBUG 2021-01-08 19:14:05,821: search_engine_best successfully returned 2017 results for query number 15.
-DEBUG 2021-01-08 19:14:06,274: search_engine_best successfully returned 2103 results for query number 16.
-DEBUG 2021-01-08 19:14:06,626: search_engine_best successfully returned 1978 results for query number 17.
-DEBUG 2021-01-08 19:14:07,370: search_engine_best successfully returned 1571 results for query number 18.
-DEBUG 2021-01-08 19:14:08,381: search_engine_best successfully returned 3707 results for query number 19.
-DEBUG 2021-01-08 19:14:09,419: search_engine_best successfully returned 3146 results for query number 20.
-DEBUG 2021-01-08 19:14:10,958: search_engine_best successfully returned 2489 results for query number 21.
-DEBUG 2021-01-08 19:14:11,473: search_engine_best successfully returned 3094 results for query number 22.
-DEBUG 2021-01-08 19:14:12,607: search_engine_best successfully returned 2555 results for query number 23.
-DEBUG 2021-01-08 19:14:14,452: search_engine_best successfully returned 3357 results for query number 24.
-DEBUG 2021-01-08 19:14:15,451: search_engine_best successfully returned 2502 results for query number 25.
-DEBUG 2021-01-08 19:14:16,695: search_engine_best successfully returned 1571 results for query number 26.
-DEBUG 2021-01-08 19:14:17,680: search_engine_best successfully returned 1475 results for query number 27.
-DEBUG 2021-01-08 19:14:18,991: search_engine_best successfully returned 2962 results for query number 28.
-DEBUG 2021-01-08 19:14:20,770: search_engine_best successfully returned 1218 results for query number 29.
-DEBUG 2021-01-08 19:14:21,261: search_engine_best successfully returned 1662 results for query number 30.
-DEBUG 2021-01-08 19:14:23,502: search_engine_best successfully returned 367 results for query number 31.
-DEBUG 2021-01-08 19:14:24,780: search_engine_best successfully returned 2206 results for query number 32.
-DEBUG 2021-01-08 19:14:25,695: search_engine_best successfully returned 2444 results for query number 33.
-DEBUG 2021-01-08 19:14:26,016: search_engine_best successfully returned 1626 results for query number 34.
-DEBUG 2021-01-08 19:14:26,688: search_engine_best successfully returned 1574 results for query number 35.
-DEBUG 2021-01-08 19:14:35,342: search_engine_best results have MAP value of 0.7536446301820579.
-DEBUG 2021-01-08 19:14:35,387: search_engine_best results produced average precision of 0.622292880327469.
-DEBUG 2021-01-08 19:14:35,387: search_engine_best results produced average precision@5 of 0.8742857142857143.
-DEBUG 2021-01-08 19:14:35,387: search_engine_best results produced average precision@10 of 0.8314285714285715.
-DEBUG 2021-01-08 19:14:35,387: search_engine_best results produced average precision@50 of 0.7622857142857142.
-DEBUG 2021-01-08 19:14:35,387: search_engine_best results produced average recall of 0.913836242732002.
-ERROR 2021-01-08 19:14:35,388: idx_bench.pkl does not exist.
-DEBUG 2021-01-08 19:14:35,388: Total runtime was: 0:01:03.125405
+INFO 2021-01-10 18:29:48,845: Successfully loaded benchmark labels data.
+INFO 2021-01-10 18:29:48,847: Successfully loaded queries data.
+DEBUG 2021-01-10 18:29:48,962: Starting new HTTPS connection (1): docs.google.com:443
+DEBUG 2021-01-10 18:29:49,919: https://docs.google.com:443 "GET /uc?export=download&id=15mBW3vr8zkBKKQEWpyfb_w323UQQSscV HTTP/1.1" 200 None
+DEBUG 2021-01-10 18:29:49,921: Starting new HTTPS connection (2): docs.google.com:443
+DEBUG 2021-01-10 18:29:50,716: https://docs.google.com:443 "GET /uc?export=download&id=15mBW3vr8zkBKKQEWpyfb_w323UQQSscV&confirm=DAnZ HTTP/1.1" 302 None
+DEBUG 2021-01-10 18:29:50,720: Starting new HTTPS connection (1): doc-0g-7s-docs.googleusercontent.com:443
+DEBUG 2021-01-10 18:29:51,600: https://doc-0g-7s-docs.googleusercontent.com:443 "GET /docs/securesc/nts1dvgrr7nmgal1f1v6dmr74c1rncn7/2rfhfel2p7fs0vdea5bv02egg6oe61pc/1610296125000/00759999090074894599/03284784053566398477Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e=download HTTP/1.1" 302 0
+DEBUG 2021-01-10 18:29:51,768: https://docs.google.com:443 "GET /nonceSigner?nonce=k47tcq2dsa9vk&continue=https://doc-0g-7s-docs.googleusercontent.com/docs/securesc/nts1dvgrr7nmgal1f1v6dmr74c1rncn7/2rfhfel2p7fs0vdea5bv02egg6oe61pc/1610296125000/00759999090074894599/03284784053566398477Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e%3Ddownload&hash=t03epv4cfvcj6ph5na0tgol7796pc2d6 HTTP/1.1" 302 0
+DEBUG 2021-01-10 18:29:52,114: https://doc-0g-7s-docs.googleusercontent.com:443 "GET /docs/securesc/nts1dvgrr7nmgal1f1v6dmr74c1rncn7/2rfhfel2p7fs0vdea5bv02egg6oe61pc/1610296125000/00759999090074894599/03284784053566398477Z/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV?e=download&nonce=k47tcq2dsa9vk&user=03284784053566398477Z&hash=ee57dn5ng81sdeq59h5dcdtfopp4ce02 HTTP/1.1" 200 None
+INFO 2021-01-10 18:30:01,782: Successfully downloaded and extracted pretrained model into .\model.
+INFO 2021-01-10 18:30:04,297: Successfully imported module search_engine_best.
+INFO 2021-01-10 18:30:04,297: loading projection weights from .\model\word2vec_model.bin
+DEBUG 2021-01-10 18:30:04,298: {'uri': '.\\model\\word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-10 18:30:04,755: loaded (65955, 300) matrix from .\model\word2vec_model.bin
+DEBUG 2021-01-10 18:30:07,958: Building the index in search_engine_best for benchmark data took 3.181095899999999 seconds.
+INFO 2021-01-10 18:30:07,958: loading projection weights from .\model\word2vec_model.bin
+DEBUG 2021-01-10 18:30:07,958: {'uri': '.\\model\\word2vec_model.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'ignore_ext': False, 'transport_params': None}
+INFO 2021-01-10 18:30:08,447: loaded (65955, 300) matrix from .\model\word2vec_model.bin
+DEBUG 2021-01-10 18:30:09,961: search_engine_best successfully returned 794 results for the query 'bioweapon'.
+DEBUG 2021-01-10 18:30:11,211: search_engine_best successfully returned 608 results for query number 1.
+DEBUG 2021-01-10 18:30:11,843: search_engine_best successfully returned 2528 results for query number 2.
+DEBUG 2021-01-10 18:30:12,861: search_engine_best successfully returned 2887 results for query number 3.
+DEBUG 2021-01-10 18:30:13,230: search_engine_best successfully returned 1749 results for query number 4.
+DEBUG 2021-01-10 18:30:13,706: search_engine_best successfully returned 727 results for query number 5.
+DEBUG 2021-01-10 18:30:14,067: search_engine_best successfully returned 2832 results for query number 6.
+DEBUG 2021-01-10 18:30:14,288: search_engine_best successfully returned 1170 results for query number 7.
+DEBUG 2021-01-10 18:30:15,043: search_engine_best successfully returned 1766 results for query number 8.
+DEBUG 2021-01-10 18:30:15,394: search_engine_best successfully returned 2110 results for query number 9.
+DEBUG 2021-01-10 18:30:16,060: search_engine_best successfully returned 1895 results for query number 10.
+DEBUG 2021-01-10 18:30:16,471: search_engine_best successfully returned 2324 results for query number 11.
+DEBUG 2021-01-10 18:30:16,952: search_engine_best successfully returned 3088 results for query number 12.
+DEBUG 2021-01-10 18:30:17,321: search_engine_best successfully returned 3080 results for query number 13.
+DEBUG 2021-01-10 18:30:18,208: search_engine_best successfully returned 2366 results for query number 14.
+DEBUG 2021-01-10 18:30:18,389: search_engine_best successfully returned 2017 results for query number 15.
+DEBUG 2021-01-10 18:30:18,723: search_engine_best successfully returned 2103 results for query number 16.
+DEBUG 2021-01-10 18:30:18,973: search_engine_best successfully returned 1978 results for query number 17.
+DEBUG 2021-01-10 18:30:19,573: search_engine_best successfully returned 1571 results for query number 18.
+DEBUG 2021-01-10 18:30:20,308: search_engine_best successfully returned 3707 results for query number 19.
+DEBUG 2021-01-10 18:30:21,005: search_engine_best successfully returned 3146 results for query number 20.
+DEBUG 2021-01-10 18:30:22,030: search_engine_best successfully returned 2489 results for query number 21.
+DEBUG 2021-01-10 18:30:22,279: search_engine_best successfully returned 3094 results for query number 22.
+DEBUG 2021-01-10 18:30:22,892: search_engine_best successfully returned 2555 results for query number 23.
+DEBUG 2021-01-10 18:30:23,886: search_engine_best successfully returned 3357 results for query number 24.
+DEBUG 2021-01-10 18:30:24,467: search_engine_best successfully returned 2502 results for query number 25.
+DEBUG 2021-01-10 18:30:25,277: search_engine_best successfully returned 1571 results for query number 26.
+DEBUG 2021-01-10 18:30:25,820: search_engine_best successfully returned 1475 results for query number 27.
+DEBUG 2021-01-10 18:30:26,584: search_engine_best successfully returned 2962 results for query number 28.
+DEBUG 2021-01-10 18:30:27,542: search_engine_best successfully returned 1218 results for query number 29.
+DEBUG 2021-01-10 18:30:27,803: search_engine_best successfully returned 1662 results for query number 30.
+DEBUG 2021-01-10 18:30:29,105: search_engine_best successfully returned 367 results for query number 31.
+DEBUG 2021-01-10 18:30:29,748: search_engine_best successfully returned 2206 results for query number 32.
+DEBUG 2021-01-10 18:30:30,334: search_engine_best successfully returned 2444 results for query number 33.
+DEBUG 2021-01-10 18:30:30,574: search_engine_best successfully returned 1626 results for query number 34.
+DEBUG 2021-01-10 18:30:31,017: search_engine_best successfully returned 1574 results for query number 35.
+DEBUG 2021-01-10 18:30:36,360: search_engine_best results have MAP value of 0.7545745326421921.
+DEBUG 2021-01-10 18:30:36,386: search_engine_best results produced average precision of 0.622292880327469.
+DEBUG 2021-01-10 18:30:36,386: search_engine_best results produced average precision@5 of 0.8742857142857142.
+DEBUG 2021-01-10 18:30:36,386: search_engine_best results produced average precision@10 of 0.84.
+DEBUG 2021-01-10 18:30:36,386: search_engine_best results produced average precision@50 of 0.7657142857142857.
+DEBUG 2021-01-10 18:30:36,386: search_engine_best results produced average recall of 0.913836242732002.
+INFO 2021-01-10 18:30:36,386: idx_bench.pkl found!
+INFO 2021-01-10 18:30:36,492: Successfully loaded idx_bench.pkl using search_engine_best.
+DEBUG 2021-01-10 18:30:36,493: Total runtime was: 0:00:47.660952

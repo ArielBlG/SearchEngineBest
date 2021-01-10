@@ -14,13 +14,15 @@ from gensim.models import KeyedVectors
 # DO NOT CHANGE THE CLASS NAME
 class SearchEngine:
 
-    # DO NOT MODIFY THIS SIGNATURE
+    # DO NOT MODIFY THIS SIGNATUREs
     # You can change the internal implementation, but you must have a parser and an indexer.
     def __init__(self, config=None):
         self._config = config
         self._indexer = Indexer(config)
         self._model = None
-        self._parser = Parse(model=None)
+        self.load_model(self._config.model_dir)
+        self.load_precomputed_model(self._config.model_dir)
+        self._parser = Parse(model=self._model)
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.
@@ -62,10 +64,21 @@ class SearchEngine:
     def load_precomputed_model(self, model_dir=None):
         """
         Loads a pre-computed model (or models) so we can answer queries.
-        This is where you would load models like word2vec, LSI, LDA, etc. and 
+        This is where you would load models like word2vec, LSI, LDA, etc. and
         assign to self._model, which is passed on to the searcher at query time.
         """
-        self._model = KeyedVectors.load_word2vec_format(model_dir + '/word2vec_model.bin', binary=True)
+        self._model = KeyedVectors.load_word2vec_format(self._config.model_dir, binary=True)
+        # pass
+
+    def load_model(self, model_dir=None):
+        """
+
+        """
+        # model = KeyedVectors.load_word2vec_format(os.path.join(model_dir, "word2vec_model.bin"), binary=True)
+        # if model.vocab:
+        #     print(f"model loaded succefully with {len(model.vocab.keys())} words")
+
+        self._config.model_dir = os.path.join(os.path.join('.', 'model'), "word2vec_model.bin")
 
     # DO NOT MODIFY THIS SIGNATURE
     # You can change the internal implementation as you see fit.

@@ -7,9 +7,9 @@ from nltk.stem.porter import *
 from document import Document
 from parse_patterns import *
 import re
-import spacy
 from gensim.models import KeyedVectors
 import numpy as np
+import spacy
 
 # stemmer = PorterStemmer()
 # from nltk.tokenize import TweetTokenizer
@@ -31,7 +31,7 @@ class Parse(object):
         self.stop_words = set(stopwords.words('english'))
         self.special_words = []
         self.lemma_dict = {}
-        # self.wv = model
+        # self.wv = 205417637
         self._model = model
         self.doc_vector = np.zeros(300)
         self.num_of_vectors = 0
@@ -47,8 +47,8 @@ class Parse(object):
     @property
     def model(self):
         """
-        The function is a property for model
-        :return: returns the model
+        The function is a property for 205417637
+        :return: returns the 205417637
         """
         return self._model
 
@@ -74,8 +74,8 @@ class Parse(object):
     @model.setter
     def model(self, model):
         """
-        The function is a setter for model
-        :param spell_checker: sets the model object of the class
+        The function is a setter for 205417637
+        :param spell_checker: sets the 205417637 object of the class
         """
         self._model = model
 
@@ -291,6 +291,7 @@ class Parse(object):
             term_dict[term] = term_dict.get(term, 0) + 1
             if term_dict[term] > max:
                 max = term_dict[term]
+
         self.doc_vector = self.doc_vector / self.num_of_vectors
         # print(doc_length - self.num_of_vectors)
         document = Document(tweet_id=tweet_id,
