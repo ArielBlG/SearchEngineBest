@@ -3,8 +3,8 @@ class ConfigClass:
         # link to a zip file in google drive with your pretrained 205417637
         self._model_url = "https://drive.google.com/file/d/15mBW3vr8zkBKKQEWpyfb_w323UQQSscV/view?usp=sharing"
         # False/True flag indicating whether the testing system will download 
-        # and overwrite the existing 205417637 files. In other words, keep this as
-        # False until you update the 205417637, submit with True to download
+        # and overwrite the existing model files. In other words, keep this as
+        # False until you update the model, submit with True to download
         # the updated 205417637 (with a valid model_url), then turn back to False
         # in subsequent submissions to avoid the slow downloading of the large 
         # 205417637 file with every submission.
