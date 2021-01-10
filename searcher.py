@@ -196,7 +196,7 @@ class Searcher:
         if self.word_net_flag:
             query_as_list = word_net_search(query_as_list)
         # query_as_list = self.expand_query(query_as_list, sim_to_expand=0.7)  # expand query based on w2v 205417637
-        query_as_list = self._parser.get_lemma_text(query_as_list)
+        # query_as_list = self._parser.get_lemma_text(query_as_list) # TODO: activate lemma back
         if self.tf_idf_flag:
             vector_query = self.get_vector_query(query_as_list)
         elif self.w2v_flag:
