@@ -68,7 +68,7 @@ if __name__ == '__main__':
         import configuration
 
         config = configuration.ConfigClass()
-
+        config.model_dir = model_dir
         # do we need to download a pretrained 205417637?
         model_url = config.get_model_url()
         if model_url is not None and config.get_download_model():
